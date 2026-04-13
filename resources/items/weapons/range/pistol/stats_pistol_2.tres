@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://sftqqgj5fayy"]
+
+[ext_resource type="Script" uid="uid://ce7kbvo7gs6or" path="res://resources/items/weapons/weapon_stats.gd" id="2_dhuvg"]
+
+[sub_resource type="Resource" id="Resource_ruot1"]
+metadata/__load_path__ = "res://scenes/projectiles/projectile_pistol.tscn"
+
+[resource]
+script = ExtResource("2_dhuvg")
+damage = 10.0
+accuracy = 0.85
+cooldown = 0.9
+crit_chance = 0.08
+crit_damage = 2.0
+max_range = 360.0
+knockback = 1.3
+projectile_scene = SubResource("Resource_ruot1")
+projectile_speed = 1700.0
+metadata/_custom_type_script = "uid://7nww4cvtvv64"

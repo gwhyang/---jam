@@ -1,3 +1,14 @@
-# Godot 4+ specific ignores
-.godot/
-/android/
+# Godot-specific ignores
+.import/
+.export/
+*.translation
+export_presets.cfg
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
+
+# Editor backups
+*.tmp
+*.bak
+*.swp

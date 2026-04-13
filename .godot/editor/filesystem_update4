@@ -1,0 +1,8 @@
+res://scenes/ui/coins_bag/coins_bag.tscn
+res://effects/flash.gdshader
+res://shaders/outline.gdshader
+res://resources/waves/data/wave_1_to_5.tres
+res://resources/items/weapons/range/pistol/stats_pistol_2.tres
+res://resources/items/weapons/range/pistol/stats_pistol_3.tres
+res://resources/items/weapons/range/pistol/stats_pistol_4.tres
+res://scenes/arena/arena.tscn

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://bb0huubmf3b6w"]
+
+[ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="1_cneyk"]
+[ext_resource type="Script" uid="uid://5tkkf27wtphe" path="res://resources/units/unit_stats.gd" id="1_m42qi"]
+
+[resource]
+script = ExtResource("1_m42qi")
+name = ""
+type = 0
+icon = ExtResource("1_cneyk")
+health = 10
+health_increase_per_wave = 1.0
+damage = 1.0
+damage_increase_per_wave = 1.0
+speed = 300.0
+luck = 1.0
+block_chance = 0.0
+gold_drop = 1
+metadata/_custom_type_script = "uid://5tkkf27wtphe"
