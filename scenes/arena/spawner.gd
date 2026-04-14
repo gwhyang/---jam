@@ -54,12 +54,13 @@ func get_random_spawn_position() -> Vector2:
 	var random_y := randf_range(-spawn_area_size.y, spawn_area_size.y)
 	return Vector2(random_x, random_y)
 
-
+## 生成敌人的，如果要生成己方的应该跟着这个学着写出来
 func spawn_enemy() -> void:
 	var enemy_scene := current_wave_data.get_random_unit_scene() as PackedScene
 	if enemy_scene:
 		var spawn_pos := get_random_spawn_position()
 		
+		#生成动画逻辑
 		var spawn_anim := Global.SPAWN_EFFECT_SCENE.instantiate()
 		get_parent().add_child(spawn_anim)
 		spawn_anim.global_position = spawn_pos
