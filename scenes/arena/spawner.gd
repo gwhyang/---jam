@@ -14,7 +14,7 @@ signal on_wave_completed
 var wave_index := 1
 var current_wave_data: WaveData
 var spawned_enemies: Array[Enemy] = []
-
+var spawned_summons: Array[Summon] = []
 
 
 func find_wave_data() -> WaveData:
@@ -61,18 +61,29 @@ func spawn_enemy() -> void:
 		var spawn_pos := get_random_spawn_position()
 		
 		#生成动画逻辑
-		var spawn_anim := Global.SPAWN_EFFECT_SCENE.instantiate()
-		get_parent().add_child(spawn_anim)
-		spawn_anim.global_position = spawn_pos
+		#var spawn_anim := Global.SPAWN_EFFECT_SCENE.instantiate()
+		#get_parent().add_child(spawn_anim)
+		#spawn_anim.global_position = spawn_pos
+		#await spawn_anim.anim_player.animation_finished
+		#spawn_anim.queue_free()
+		#
+		#var enemy_instance := enemy_scene.instantiate() as Enemy
+		#enemy_instance.global_position = spawn_pos
+		#get_parent().add_child(enemy_instance)
+		#spawned_enemies.append(enemy_instance)
+		
+		var spawn_anim := spawn(Global.SPAWN_EFFECT_SCENE,spawn_pos)
+		if not spawn_anim:
+			push_error(0000)
+			return
 		await spawn_anim.anim_player.animation_finished
 		spawn_anim.queue_free()
 		
-		var enemy_instance := enemy_scene.instantiate() as Enemy
-		enemy_instance.global_position = spawn_pos
-		get_parent().add_child(enemy_instance)
+		var enemy_instance := spawn(enemy_scene,spawn_pos) as Enemy
 		spawned_enemies.append(enemy_instance)
 	
 	set_spawn_timer()
+
 
 func update_enemies_new_wave() -> void:
 	for stat: UnitStats in enemy_collection:
@@ -95,6 +106,18 @@ func get_wave_text() -> String:
 func get_wave_timer_text() -> String:
 	return str(max(0, int(wave_timer.time_left)))
 
+## 返回null代表生成失败
+func spawn(spawned:PackedScene,global_posi:Vector2 = Vector2(0,0))->Node2D:
+	if not spawned:
+		return null
+	var spawned_instance := spawned.instantiate()
+	if not spawned_instance is Node2D:
+		return null
+		
+	spawned_instance =spawned_instance as Node2D
+	spawned_instance.global_position = global_posi
+	get_parent().add_child(spawned_instance)
+	return spawned_instance
 
 func _on_spawn_timer_timeout() -> void:
 	if not current_wave_data or wave_timer.is_stopped():
