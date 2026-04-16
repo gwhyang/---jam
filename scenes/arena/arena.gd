@@ -23,7 +23,7 @@ func _ready() -> void:
 	Global.on_upgrade_selected.connect(_on_upgrade_selected)
 	Global.on_create_heal_text.connect(_on_create_heal_text)
 	Global.on_enemy_died.connect(_on_enemy_died)
-	
+	Game.spawn_scene.connect(spawner.spawn)
 
 
 func _process(delta: float) -> void:
