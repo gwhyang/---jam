@@ -12,6 +12,10 @@
 [ext_resource type="Resource" uid="uid://duuvrfevhtmou" path="res://resources/units/players/stats_player_knight.tres" id="6_ie7rk"]
 [ext_resource type="Resource" uid="uid://232fevag55pv" path="res://resources/units/players/stats_player_well_rounded.tres" id="7_y6xu8"]
 [ext_resource type="Script" uid="uid://7e4rrmweiw5r" path="res://resources/items/weapons/item_weapon.gd" id="8_q3p5q"]
+[ext_resource type="Resource" uid="uid://imimryc45lel" path="res://resources/items/weapons/range/laser/item_laser_1.tres" id="14_u23au"]
+[ext_resource type="Resource" uid="uid://cus7cp8qtvf2x" path="res://resources/items/weapons/range/revolver/item_revolver_1.tres" id="15_k2kjo"]
+[ext_resource type="Resource" uid="uid://b1cpgsnisp755" path="res://resources/items/weapons/melee/axe/item_axe_1.tres" id="16_4mw87"]
+[ext_resource type="Resource" uid="uid://ce3e0y3uiyw7k" path="res://resources/items/weapons/melee/chainsaw/item_chainsaw_1.tres" id="17_hu73q"]
 [ext_resource type="Resource" uid="uid://xa5yx3ou1hck" path="res://resources/items/weapons/range/smg/item_smg_1.tres" id="19_khnca"]
 [ext_resource type="Texture2D" uid="uid://dxl550mv1d5l6" path="res://assets/sprites/Upgrades/3.png" id="20_y6xu8"]
 [ext_resource type="PackedScene" uid="uid://dg1h8yasmsxgn" path="res://scenes/weapons/hand/hand_wepon.tscn" id="21_q3p5q"]
@@ -52,7 +56,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rbokc")
 script = ExtResource("1_un15a")
 players = Array[ExtResource("2_hu73q")]([ExtResource("3_3scu4"), ExtResource("4_10geq"), ExtResource("5_0pu13"), ExtResource("6_ie7rk"), ExtResource("7_y6xu8")])
-start_weapons = Array[ExtResource("8_q3p5q")]([ExtResource("19_khnca"), SubResource("Resource_rjdwg")])
+start_weapons = Array[ExtResource("8_q3p5q")]([ExtResource("19_khnca"), SubResource("Resource_rjdwg"), ExtResource("14_u23au"), ExtResource("15_k2kjo"), ExtResource("16_4mw87"), ExtResource("17_hu73q")])
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1680161314]
 layout_mode = 1
