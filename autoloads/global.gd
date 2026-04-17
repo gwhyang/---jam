@@ -6,6 +6,9 @@ signal on_create_heal_text(unit: Node2D, heal: float)
 
 signal on_upgrade_selected
 signal on_enemy_died(enemy: Enemy)
+signal on_summon_died(summon:Summon)
+
+
 
 const FLASH_MATERIAL = preload("res://effects/flash_materia.tres")
 const FLOATING_TEXT_SCENE = preload("res://scenes/ui/floating_text/floating_text.tscn")
@@ -13,6 +16,7 @@ const COINS_SCENE = preload("res://scenes/coins/coins.tscn")
 const ITEM_CARD_SCENE = preload("res://scenes/ui/item_card/item_card.tscn")
 const SELECTION_CARD_SCENE = preload("res://scenes/ui/selection_panel/selection_card.tscn")
 const SPAWN_EFFECT_SCENE = preload("res://scenes/effects/enemy_spawn_effect.tscn")
+const SUMMON_EFFECT_SCENE = preload("res://scenes/effects/enemy_spawn_effect.tscn")
 
 const COMMON_STYLE = preload("res://Styles/common_style.tres")
 const EPIC_STYLE = preload("res://Styles/epic_style.tres")

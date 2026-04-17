@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgec14ic5wo26"]
+
+[ext_resource type="PackedScene" uid="uid://b08parf65pnyt" path="res://scenes/unit/unit.tscn" id="1_cs05x"]
+[ext_resource type="Script" uid="uid://dpl0g8tfxlgqu" path="res://scenes/unit/Summon/summon.gd" id="2_b4w1c"]
+[ext_resource type="Script" uid="uid://cfp5ndd5xdbt5" path="res://scenes/unit/Summon/summon_move_behavoir.gd" id="3_b4w1c"]
+
+[node name="summon_" unique_id=918819364 instance=ExtResource("1_cs05x")]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("2_b4w1c")
+
+[node name="HurtboxComponent" parent="." index="3"]
+collision_layer = 256
+collision_mask = 4
+
+[node name="SummonMoveBehavoir" type="Node2D" parent="." index="7" unique_id=1946181641]
+script = ExtResource("3_b4w1c")
+metadata/_custom_type_script = "uid://cfp5ndd5xdbt5"
