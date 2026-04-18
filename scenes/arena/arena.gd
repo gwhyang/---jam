@@ -24,6 +24,7 @@ func _ready() -> void:
 	Global.on_create_heal_text.connect(_on_create_heal_text)
 	Global.on_enemy_died.connect(_on_enemy_died)
 	Game.spawn_scene.connect(spawner.spawn)
+	Game.summon_scene.connect(spawner.spawn_summon)
 
 
 func _process(delta: float) -> void:

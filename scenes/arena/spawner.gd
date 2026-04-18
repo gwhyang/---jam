@@ -85,11 +85,13 @@ func spawn_enemy() -> void:
 	
 	set_spawn_timer()
 
-func spawn_summon(summon_scene:PackedScene)->void:
+func random_spawn_summon(summon_scene:PackedScene)->void:
 	var summon_posi := get_random_summon_position()
+	spawn_summon(summon_scene,summon_posi)
+
+func spawn_summon(summon_scene:PackedScene,summon_posi:Vector2)->void:
 	var summon_anim := spawn(Global.SUMMON_EFFECT_SCENE,summon_posi)
 	if not summon_anim:
-		push_error(0000)
 		return
 	await summon_anim.anim_player.animation_finished
 	summon_anim.queue_free()

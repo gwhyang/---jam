@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bajw7ndvw1ywh"]
+
+[ext_resource type="Script" uid="uid://dkvcaj6i7piyb" path="res://scenes/bodies/body.gd" id="1_vb5fm"]
+[ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="2_7wwup"]
+[ext_resource type="PackedScene" uid="uid://k0vx1yvvka31" path="res://scenes/unit/Summon/summon_defense.tscn" id="2_s7t1b"]
+[ext_resource type="Texture2D" uid="uid://dskcgsodfwuhf" path="res://assets/sprites/Weapons/Hand/necrobinder.png" id="4_s7t1b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a573l"]
+atlas = ExtResource("4_s7t1b")
+region = Rect2(1448.7078, 12.553284, 55.59729, 51.089417)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7t1b"]
+size = Vector2(100, 100)
+
+[node name="Body" type="Area2D" unique_id=1675950758]
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("1_vb5fm")
+summon_scene = ExtResource("2_s7t1b")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1261260793]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=337215983]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.588235)
+scale = Vector2(0.8, 1)
+texture = ExtResource("2_7wwup")
+
+[node name="Sprite" type="Sprite2D" parent="Visuals" unique_id=816648257]
+unique_name_in_owner = true
+position = Vector2(0, -61)
+texture = SubResource("AtlasTexture_a573l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881982444]
+shape = SubResource("RectangleShape2D_s7t1b")

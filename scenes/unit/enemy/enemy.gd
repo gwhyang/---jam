@@ -2,6 +2,7 @@ extends Unit
 class_name Enemy
 
 @export var flock_push := 20.0
+@export var body_scene:PackedScene
 
 @onready var vision_area: Area2D = $VisionArea
 @onready var knockback_timer: Timer = $KnockbackTimer
@@ -83,3 +84,5 @@ func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
 
 func _on_health_component_on_unit_died() -> void:
 	Global.on_enemy_died.emit(self)
+	if body_scene:
+		Game.spawn(body_scene,global_position)
