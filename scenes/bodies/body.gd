@@ -13,3 +13,7 @@ func destory():
 	body_ani.play("disappear")
 	await body_ani.animation_finished
 	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	on_touch_summon_skill()
