@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b08parf65pnyt"]
+[gd_scene format=3 uid="uid://b08parf65pnyt"]
 
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_fvc8g"]
 [ext_resource type="Script" uid="uid://dvlyuwfk08kre" path="res://scenes/unit/unit.gd" id="1_vh40f"]
@@ -71,7 +71,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_3po7s"]
 resource_name = "die"
-length = 0.5
+length = 0.6
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -222,34 +222,32 @@ _data = {
 &"move": SubResource("Animation_vgvef")
 }
 
-[node name="Unit" type="Area2D"]
+[node name="Unit" type="Area2D" unique_id=2005851551]
 script = ExtResource("1_vh40f")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=2033358750]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 
-[node name="Shadow" type="Sprite2D" parent="Visuals"]
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=1314218701]
 modulate = Color(0.101961, 0.101961, 0.101961, 0.588235)
 scale = Vector2(0.8, 1)
 texture = ExtResource("1_fvc8g")
 
-[node name="Sprite" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="Sprite2D" parent="Visuals" unique_id=1627346367]
 unique_name_in_owner = true
 position = Vector2(0, -61)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51283714]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_w7udy")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=934486494]
+libraries/ = SubResource("AnimationLibrary_w7udy")
 
-[node name="HurtboxComponent" parent="." instance=ExtResource("3_vh40f")]
+[node name="HurtboxComponent" parent="." unique_id=325032355 instance=ExtResource("3_vh40f")]
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_bhlit")]
+[node name="HealthComponent" parent="." unique_id=290858985 instance=ExtResource("4_bhlit")]
 
-[node name="HealthBar" parent="." instance=ExtResource("5_vgvef")]
+[node name="HealthBar" parent="." unique_id=219666616 instance=ExtResource("5_vgvef")]
 offset_left = -46.0
 offset_top = -90.0
 offset_right = 50.0
@@ -257,7 +255,7 @@ offset_bottom = -70.0
 back_color = Color(0.0156863, 0.054902, 0.168627, 1)
 fill_color = Color(0.372549, 0.537255, 0.756863, 1)
 
-[node name="FlashTimer" type="Timer" parent="."]
+[node name="FlashTimer" type="Timer" parent="." unique_id=1159218486]
 wait_time = 0.2
 one_shot = true
 

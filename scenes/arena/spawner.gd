@@ -1,6 +1,8 @@
 extends Node2D
 class_name Spawner
 
+enum ClearFlag{IGNORE,WAVEEND}
+
 signal on_wave_completed
 
 @export var spawn_area_size := Vector2(1000, 500)
@@ -16,7 +18,7 @@ var wave_index := 1
 var current_wave_data: WaveData
 var spawned_enemies: Array[Enemy] = []
 var spawned_summons: Array[Summon] = []
-
+var spawned_bodys: Array[Body] = []
 
 func find_wave_data() -> WaveData:
 	for wave in waves_data:
@@ -85,6 +87,16 @@ func spawn_enemy() -> void:
 	
 	set_spawn_timer()
 
+func spawn_body(body_scene:PackedScene,body_posi:Vector2)->void:
+	var body_anim := spawn(Global.BODY_EFFECT_SCENE,body_posi)
+	if not body_anim:
+		return
+	await body_anim.anim_player.animation_finished
+	body_anim.queue_free()
+		
+	var body_instance := spawn(body_scene,body_posi) as Body
+	spawned_bodys.append(body_instance)
+
 func random_spawn_summon(summon_scene:PackedScene)->void:
 	var summon_posi := get_random_summon_position()
 	spawn_summon(summon_scene,summon_posi)
@@ -125,6 +137,11 @@ func clear_enemies() -> void:
 	
 	spawned_enemies.clear()
 
+func clear_bodies()->void:
+	for body in spawned_bodys:
+		if is_instance_valid(body):
+			body.destory()
+	spawned_bodys.clear()
 
 func get_wave_text() -> String:
 	return "Wave %s" % wave_index
@@ -144,6 +161,7 @@ func spawn(spawned:PackedScene,global_posi:Vector2 = Vector2(0,0))->Node2D:
 	spawned_instance =spawned_instance as Node2D
 	spawned_instance.global_position = global_posi
 	get_parent().add_child(spawned_instance)
+	
 	return spawned_instance
 
 func _on_spawn_timer_timeout() -> void:

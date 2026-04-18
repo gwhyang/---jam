@@ -17,6 +17,7 @@ const ITEM_CARD_SCENE = preload("res://scenes/ui/item_card/item_card.tscn")
 const SELECTION_CARD_SCENE = preload("res://scenes/ui/selection_panel/selection_card.tscn")
 const SPAWN_EFFECT_SCENE = preload("res://scenes/effects/enemy_spawn_effect.tscn")
 const SUMMON_EFFECT_SCENE = preload("res://scenes/effects/enemy_spawn_effect.tscn")
+const BODY_EFFECT_SCENE = preload("res://scenes/effects/enemy_spawn_effect.tscn")
 
 const COMMON_STYLE = preload("res://Styles/common_style.tres")
 const EPIC_STYLE = preload("res://Styles/epic_style.tres")

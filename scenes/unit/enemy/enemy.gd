@@ -84,5 +84,3 @@ func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
 
 func _on_health_component_on_unit_died() -> void:
 	Global.on_enemy_died.emit(self)
-	if body_scene:
-		Game.spawn(body_scene,global_position)
