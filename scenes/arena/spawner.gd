@@ -12,6 +12,7 @@ signal on_wave_completed
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var wave_timer: Timer = $WaveTimer
+@onready var clear_timer: Timer = %ClearTimer
 
 
 var wave_index := 1
@@ -52,6 +53,12 @@ func set_spawn_timer() -> void:
 		spawn_timer.start()
 		
 
+func _on_clear_timer_timeout() -> void:
+	Global.game_paused = true
+	Global.get_harvesting_coins()
+	on_wave_completed.emit()
+	clear_enemies()
+	
 func get_random_spawn_position() -> Vector2:
 	var random_x := randf_range(-spawn_area_size.x, spawn_area_size.x)
 	var random_y := randf_range(-spawn_area_size.y, spawn_area_size.y)
@@ -173,9 +180,9 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func _on_wave_timer_timeout() -> void:
-	Global.game_paused = true
-	Global.get_harvesting_coins()
-	on_wave_completed.emit()
 	spawn_timer.stop()
-	clear_enemies()
 	update_enemies_new_wave()
+	for enemi in spawned_enemies:
+		if is_instance_valid(enemi):
+			return
+	clear_timer.start()

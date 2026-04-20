@@ -14,6 +14,7 @@ class_name Arena
 @onready var upgrande_panel: UpgradePanel = %UpgradePanel
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var coins_bag: CoinsBag = %CoinsBag
+@onready var clear_timer: Timer = %ClearTimer## 清完怪后等待时间
 
 var gold_list: Array[Coins]
 
@@ -121,6 +122,13 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	if enemy.body_scene:
 		spawner.spawn_body(enemy.body_scene,enemy.global_position)
 		#spawner.call_deferred("spawn_body",[enemy.body_scene,enemy.global_position])
+	if spawner.wave_timer.is_stopped():
+		for enemi in spawner.spawned_enemies:
+			if is_instance_valid(enemi):
+				if enemi == enemy:
+					continue
+				return
+		clear_timer.start()
 
 
 func _on_selection_panel_on_selection_completed() -> void:
