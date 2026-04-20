@@ -6,6 +6,7 @@ class_name Body
 @onready var body_ani: AnimationPlayer = %body_ani
 
 func on_touch_summon_skill():
+	await get_tree().create_timer(0.4*randf())
 	Game.summon(summon_scene,global_position)
 	queue_free()
 

@@ -20,6 +20,7 @@ var current_wave_data: WaveData
 var spawned_enemies: Array[Enemy] = []
 var spawned_summons: Array[Summon] = []
 var spawned_bodys: Array[Body] = []
+var is_cleaned_last_test:bool = false
 
 func find_wave_data() -> WaveData:
 	for wave in waves_data:
@@ -65,7 +66,7 @@ func get_random_spawn_position() -> Vector2:
 	return Vector2(random_x, random_y)
 
 ## 生成敌人的，如果要生成己方的应该跟着这个学着写出来
-func spawn_enemy() -> void:
+func wave_spawn_enemy() -> void:
 	var enemy_scene := current_wave_data.get_random_unit_scene() as PackedScene
 	if enemy_scene:
 		var spawn_pos := get_random_spawn_position()
@@ -82,17 +83,20 @@ func spawn_enemy() -> void:
 		#get_parent().add_child(enemy_instance)
 		#spawned_enemies.append(enemy_instance)
 		
-		var spawn_anim := spawn(Global.SPAWN_EFFECT_SCENE,spawn_pos)
-		if not spawn_anim:
-			push_error(0000)
-			return
-		await spawn_anim.anim_player.animation_finished
-		spawn_anim.queue_free()
-		
-		var enemy_instance := spawn(enemy_scene,spawn_pos) as Enemy
-		spawned_enemies.append(enemy_instance)
+		spawn_enemy(enemy_scene,spawn_pos)
 	
 	set_spawn_timer()
+
+func spawn_enemy(enemy_scene:PackedScene,spawn_posi:Vector2) ->void:
+	var spawn_anim := spawn(Global.SPAWN_EFFECT_SCENE,spawn_posi)
+	if not spawn_anim:
+		push_error(0000)
+		return
+	await spawn_anim.anim_player.animation_finished
+	spawn_anim.queue_free()
+	
+	var enemy_instance := spawn(enemy_scene,spawn_posi) as Enemy
+	spawned_enemies.append(enemy_instance)
 
 func spawn_body(body_scene:PackedScene,body_posi:Vector2)->void:
 	var body_anim := spawn(Global.BODY_EFFECT_SCENE,body_posi)
@@ -176,13 +180,43 @@ func _on_spawn_timer_timeout() -> void:
 		spawn_timer.stop()
 		return
 	
-	spawn_enemy()
+	wave_spawn_enemy()
 
 
 func _on_wave_timer_timeout() -> void:
 	spawn_timer.stop()
+	var end_scenes := current_wave_data.get_wave_end_scenes()
 	update_enemies_new_wave()
+	print(end_scenes)
+	
+	if not end_scenes.is_empty():
+		for scene in end_scenes:
+			spawn_enemy_after(scene,get_random_spawn_position(),0.9*randf())
+		return
+	
 	for enemi in spawned_enemies:
 		if is_instance_valid(enemi):
 			return
-	clear_timer.start()
+
+func spawn_enemy_after(enemy_scene:PackedScene,spawn_posi:Vector2,t:float):
+	await get_tree().create_timer(t).timeout
+	spawn_enemy.call_deferred(enemy_scene,spawn_posi)
+
+# 不断检测是否清完图了
+func _on_test_clean_timer_timeout() -> void:
+	if Global.game_paused:
+		return
+	if not wave_timer.is_stopped():
+		return
+	if not clear_timer.is_stopped():
+		return
+	var is_clear_current_test:bool = true
+	for enemi in spawned_enemies:
+		if is_instance_valid(enemi):
+			is_clear_current_test = false
+			break
+	if is_clear_current_test and is_cleaned_last_test:
+		clear_timer.start()
+		return
+	
+	is_cleaned_last_test = is_clear_current_test

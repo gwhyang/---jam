@@ -16,6 +16,8 @@ enum SpawnType {
 @export var min_spawn_time := 1.0
 @export var max_spawn_time := 1.0
 
+@export var end_behaviors :Array[WaveEndBehavior]
+
 func get_random_unit_scene() -> PackedScene:
 	if units.is_empty():
 		printerr("No Units.")
@@ -35,3 +37,9 @@ func get_random_unit_scene() -> PackedScene:
 
 func is_valid_index(index: int) -> bool:
 	return index >= from and index <= to
+
+func get_wave_end_scenes() -> Array[PackedScene]:
+	var scenes:Array[PackedScene]=[]
+	for end_behavior in end_behaviors:
+		scenes.append_array(end_behavior.get_enemy_list())
+	return scenes

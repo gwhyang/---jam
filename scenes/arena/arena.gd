@@ -27,7 +27,6 @@ func _ready() -> void:
 	Game.spawn_scene.connect(spawner.spawn)
 	Game.summon_scene.connect(spawner.spawn_summon)
 
-
 func _process(delta: float) -> void:
 	if Global.game_paused: return
 	wave_index_label.text = spawner.get_wave_text()
@@ -122,13 +121,7 @@ func _on_enemy_died(enemy: Enemy) -> void:
 	if enemy.body_scene:
 		spawner.spawn_body(enemy.body_scene,enemy.global_position)
 		#spawner.call_deferred("spawn_body",[enemy.body_scene,enemy.global_position])
-	if spawner.wave_timer.is_stopped():
-		for enemi in spawner.spawned_enemies:
-			if is_instance_valid(enemi):
-				if enemi == enemy:
-					continue
-				return
-		clear_timer.start()
+
 
 
 func _on_selection_panel_on_selection_completed() -> void:
