@@ -60,6 +60,9 @@ enum UpgradeTier{
 	EPIC,
 	LEGENDARY
 }
+enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
+enum ItemCallBack{ONEQUIP,ONUNLOAD,ONATTACK,ONPLAYERDIE}
+enum BuffType{INVISIBLE}
 
 var coins: int = 500
 var player: Player
@@ -69,6 +72,16 @@ var main_player_selected: UnitStats
 var main_weapon_selected: ItemWeapon
 
 var equipped_weapons: Array[ItemWeapon]
+var equiped_bones: Dictionary[BoneSlot,ItemBase]={
+	BoneSlot.head : null,
+	BoneSlot.lhand : null,
+	BoneSlot.lrib : null,
+	BoneSlot.spine : null,
+	BoneSlot.rrib : null,
+	BoneSlot.rhand : null,
+	BoneSlot.lleg : null,
+	BoneSlot.rleg : null
+	}
 
 func get_harvesting_coins() -> void:
 	coins += player.stats.harvesting

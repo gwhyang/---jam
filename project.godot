@@ -87,6 +87,7 @@ test={
 2d_physics/layer_7="summon"
 2d_physics/layer_8="HitboxSummon"
 2d_physics/layer_9="HurtboxSummon"
+2d_physics/layer_10="summon_skill"
 
 [rendering]
 

@@ -11,6 +11,6 @@ enum WeaponType {
 @export var stats: WeaponStats
 @export var upgrade_to: ItemWeapon
 
-func get_description() -> String:
+func default_description() -> String:
 	return "[code]Damage: [color=green]%s[/color][/code]\nCooldown: [color=green]%s[/color]\nRange: [color=green]%s[/color]\nCritical: [color=green]%s%%[/color]" % [stats.damage, stats.cooldown, stats.max_range, stats.crit_chance * 100]
 	
