@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c32vifq51i5ei"]
 
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://assets/sprites/BG.png" id="1_5tue2"]
-[ext_resource type="Script" uid="uid://diuyekdj1taaa" path="res://scenes/arena/arena.gd" id="1_asdgj"]
+[ext_resource type="Script" uid="uid://btpsf7ceo24rl" path="res://scenes/arena/custom_arena.gd" id="1_s83md"]
 [ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://assets/sprites/Map.png" id="2_aj7ud"]
 [ext_resource type="Script" uid="uid://4jtfnt1n5ne3" path="res://scenes/arena/camera_2d.gd" id="4_aj7ud"]
 [ext_resource type="Script" uid="uid://c5b2w0rb6bn11" path="res://scenes/arena/spawner.gd" id="7_u52cf"]
@@ -21,7 +21,7 @@ font_size = 64
 font_size = 60
 
 [node name="Arena" type="Node2D" unique_id=1143503340]
-script = ExtResource("1_asdgj")
+script = ExtResource("1_s83md")
 normal_color = Color(1, 1, 1, 1)
 blocked_color = Color(1, 0.290196, 0.454902, 1)
 critical_color = Color(0.996078, 0.780392, 0.380392, 1)
@@ -102,6 +102,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="EquipPanel" parent="GameUI" unique_id=396670019 instance=ExtResource("11_s83md")]
+unique_name_in_owner = true
 visible = false
 
 [node name="SelectionPanel" parent="GameUI" unique_id=1327096259 instance=ExtResource("12_vmsrg")]
@@ -116,5 +117,4 @@ script = ExtResource("12_s83md")
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner" method="_on_clear_timer_timeout"]
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner/TestClearTimer" method="stop"]
 [connection signal="timeout" from="Spawner/TestClearTimer" to="Spawner" method="_on_test_clean_timer_timeout"]
-[connection signal="on_shop_next_wave" from="GameUI/ShopPanel" to="." method="_on_shop_panel_on_shop_next_wave"]
 [connection signal="on_selection_completed" from="GameUI/SelectionPanel" to="." method="_on_selection_panel_on_selection_completed"]
