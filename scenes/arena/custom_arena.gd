@@ -8,3 +8,8 @@ func _on_spawner_on_wave_completed() -> void:
 	# Custom flow: open equip panel directly instead of shop panel.
 	equip_panel.show()
 	clean_arena()
+
+
+func _on_equip_panel_on_equip_panel_next_wave() -> void:
+	equip_panel.hide()
+	start_new_wave()

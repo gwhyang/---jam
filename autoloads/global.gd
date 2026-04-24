@@ -61,7 +61,7 @@ enum UpgradeTier{
 	LEGENDARY
 }
 enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
-enum ItemCallBack{ONEQUIP,ONUNLOAD,ONATTACK,ONPLAYERDIE}
+enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONPLAYERDIE,APPLYSUMMON,SUMMONSPAWN}
 enum BuffType{INVISIBLE}
 
 var coins: int = 500

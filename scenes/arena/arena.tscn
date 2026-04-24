@@ -117,4 +117,5 @@ script = ExtResource("12_s83md")
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner" method="_on_clear_timer_timeout"]
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner/TestClearTimer" method="stop"]
 [connection signal="timeout" from="Spawner/TestClearTimer" to="Spawner" method="_on_test_clean_timer_timeout"]
+[connection signal="on_equip_panel_next_wave" from="GameUI/EquipPanel" to="." method="_on_equip_panel_on_equip_panel_next_wave"]
 [connection signal="on_selection_completed" from="GameUI/SelectionPanel" to="." method="_on_selection_panel_on_selection_completed"]

@@ -1,4 +1,5 @@
 extends Panel
+signal on_equip_panel_next_wave
 
 var head=Global.BoneSlot.head
 var lhand=Global.BoneSlot.lhand
@@ -8,7 +9,6 @@ var rrib=Global.BoneSlot.rrib
 var rhand=Global.BoneSlot.rhand
 var lleg=Global.BoneSlot.lleg
 var rleg=Global.BoneSlot.rleg
-
 
 @export var items_in_pack:Array[ItemBase]
 
@@ -98,13 +98,14 @@ func _on_equip_button_button_down() -> void:
 	
 	Global.equiped_bones[current_slot]= item
 	item = item as BoneItem
+	var allowed_triggers:Array[Global.ItemCallBack] = [Global.ItemCallBack.ONEQUIP,Global.ItemCallBack.EQUIPORUNLOAD]
 	var equip_context:= EffectContext.new()
 	equip_context.trigger_type = Global.ItemCallBack.ONEQUIP
 	# Trigger all ONEQUIP effects declared on this bone item.
 	for packed_effect:PackedItemEffect in item.effects:
-		if packed_effect.trigger == Global.ItemCallBack.ONEQUIP:
-			packed_effect.effect(equip_context)
-	print(Global.player.stats.speed)
+		for trigger in allowed_triggers:
+			if packed_effect.trigger == trigger:
+				packed_effect.effect(equip_context)
 	
 	current_selct_card = null
 	current_slot = -1
@@ -123,12 +124,14 @@ func _on_take_off_button_button_down() -> void:
 	
 	Global.equiped_bones[current_slot]= null
 	item = item as BoneItem
+	var allowed_triggers:Array[Global.ItemCallBack] = [Global.ItemCallBack.ONUNLOAD,Global.ItemCallBack.EQUIPORUNLOAD]
 	var equip_context:= EffectContext.new()
 	equip_context.trigger_type = Global.ItemCallBack.ONUNLOAD
 	# Roll back effects that should happen on unload.
 	for packed_effect:PackedItemEffect in item.effects:
-		if packed_effect.trigger == Global.ItemCallBack.ONUNLOAD:
-			packed_effect.effect(equip_context)
+		for trigger in allowed_triggers:
+			if packed_effect.trigger == trigger:
+				packed_effect.effect(equip_context)
 	
 	current_selct_card = null
 	current_slot = -1
@@ -141,3 +144,7 @@ func add_equipment_item_card(item:ItemBase):
 	item_card.item = item
 	equipments.add_child(item_card)
 	item_card.on_item_card_selected.connect(_on_item_card_selected)
+
+
+func _on_next_wave_button_down() -> void:
+	on_equip_panel_next_wave.emit()

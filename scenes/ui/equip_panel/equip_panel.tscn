@@ -20,6 +20,7 @@ metadata/_custom_type_script = "uid://m5yepdx7htjo"
 
 [sub_resource type="Resource" id="Resource_7l28p"]
 script = ExtResource("3_2xi03")
+trigger = 2
 _effect = SubResource("Resource_yn1rx")
 metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
@@ -298,7 +299,7 @@ custom_minimum_size = Vector2(192, 135)
 layout_mode = 2
 text = "设置"
 
-[node name="Button2" type="Button" parent="MarginContainer/Control/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=2101433938]
+[node name="NextWave" type="Button" parent="MarginContainer/Control/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=2101433938]
 custom_minimum_size = Vector2(192, 135)
 layout_mode = 2
 text = "next wave"
@@ -319,3 +320,4 @@ columns = 4
 
 [connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control/VBoxContainer/EquipButton" to="." method="_on_equip_button_button_down"]
 [connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control/VBoxContainer/TakeOffButton" to="." method="_on_take_off_button_button_down"]
+[connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/NextWave" to="." method="_on_next_wave_button_down"]
