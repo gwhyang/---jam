@@ -32,7 +32,7 @@ accuracy = 1.0
 cooldown = 0.5
 crit_chance = 1.0
 crit_damage = 1000.0
-knockback = 80.0
+knockback = 2.0
 life_steal = 1.0
 metadata/_custom_type_script = "uid://ce7kbvo7gs6or"
 

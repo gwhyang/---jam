@@ -64,7 +64,7 @@
 
 ## 5. 扩展新召唤物步骤
 
-1) 复制`summon_defense.tscn`为新召唤物场景
+1) 新建继承场景`summon_defense.tscn`为新召唤物场景
 2) 调整`stats`、贴图与碰撞形状
 3) 新增或替换行为脚本（继承`SummonMoveBehavoir`）
 4) 在测试脚本或技能逻辑里调用`Game.spawn(你的场景, 位置)`

@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://tm3wrmicsrh3"]
 
+[ext_resource type="Script" uid="uid://cpcct3b2uv3f7" path="res://resources/waves/wave_end_behavior.gd" id="1_1g00u"]
 [ext_resource type="Script" uid="uid://dumltpv332dl4" path="res://resources/waves/wave_data.gd" id="1_cx7cn"]
 [ext_resource type="Script" uid="uid://n3xmndupn2s" path="res://resources/waves/wave_unit_data.gd" id="2_78wao"]
+[ext_resource type="Script" uid="uid://byl8x3bfkmjxo" path="res://resources/waves/end_behavior/random_wave.gd" id="2_jn2r4"]
 [ext_resource type="PackedScene" uid="uid://bral4sraa0gjv" path="res://scenes/unit/enemy/enemy_chaser_slow.tscn" id="3_a0tld"]
 [ext_resource type="PackedScene" uid="uid://cvj5orepae45e" path="res://scenes/unit/enemy/enemy_chaser_mid.tscn" id="4_1g00u"]
 [ext_resource type="PackedScene" uid="uid://de0i3pykwuxeb" path="res://scenes/unit/enemy/enemy_chaser_fast.tscn" id="5_jn2r4"]
@@ -24,6 +26,12 @@ unit_scene = ExtResource("5_jn2r4")
 weight = 1.0
 metadata/_custom_type_script = "uid://n3xmndupn2s"
 
+[sub_resource type="Resource" id="Resource_lryp7"]
+script = ExtResource("2_jn2r4")
+units = Array[ExtResource("2_78wao")]([SubResource("Resource_3lh5k"), SubResource("Resource_aei4b"), SubResource("Resource_w8f67")])
+enemy_count = 0
+metadata/_custom_type_script = "uid://byl8x3bfkmjxo"
+
 [resource]
 script = ExtResource("1_cx7cn")
 from = 1
@@ -33,4 +41,5 @@ units = Array[ExtResource("2_78wao")]([SubResource("Resource_3lh5k"), SubResourc
 fixed_spawn_time = 0.8
 min_spawn_time = 0.5
 max_spawn_time = 2.0
+end_behaviors = Array[ExtResource("1_1g00u")]([SubResource("Resource_lryp7")])
 metadata/_custom_type_script = "uid://dumltpv332dl4"
