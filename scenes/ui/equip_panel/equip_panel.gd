@@ -32,7 +32,6 @@ var rleg=Global.BoneSlot.rleg
 @onready var take_off_button: Button = %TakeOffButton
 
 
-var card_to_packindex:Dictionary[ItemCard,int]
 var current_selct_card:ItemCard
 var current_slot:Global.BoneSlot = -1
 
@@ -53,13 +52,7 @@ func set_equipments():
 	for c in equipments.get_children():
 		c.queue_free()
 	for i in items_in_pack.size():
-		var item_card := item_card_scene.instantiate() as ItemCard
-		if not item_card:
-			continue
-		item_card.item = items_in_pack[i]
-		equipments.add_child(item_card)
-		card_to_packindex[item_card] = i
-		item_card.on_item_card_selected.connect(_on_item_card_selected)
+		add_equipment_item_card(items_in_pack[i])
 		
 		
 func _on_item_card_selected(card: ItemCard):
@@ -82,6 +75,10 @@ func _on_item_card_selected(card: ItemCard):
 	
 func _on_slot_selected(card: ItemCard):
 	# Selecting an occupied slot enables unload action.
+	for slot in equip_slots_ui:
+		if card == equip_slots_ui[slot]:
+			current_slot = slot
+			break
 	current_selct_card =card
 	if not card.item:
 		take_off_button.disabled = true
@@ -95,8 +92,19 @@ func _on_equip_button_button_down() -> void:
 		push_error("aaaaaa")
 		return
 	# Move selected inventory item into chosen body slot.
-	equip_slots_ui[current_slot].item = current_selct_card.item
+	var item := current_selct_card.item
+	equip_slots_ui[current_slot].item = item
 	current_selct_card.queue_free()
+	
+	Global.equiped_bones[current_slot]= item
+	item = item as BoneItem
+	var equip_context:= EffectContext.new()
+	equip_context.trigger_type = Global.ItemCallBack.ONEQUIP
+	# Trigger all ONEQUIP effects declared on this bone item.
+	for packed_effect:PackedItemEffect in item.effects:
+		if packed_effect.trigger == Global.ItemCallBack.ONEQUIP:
+			packed_effect.effect(equip_context)
+	print(Global.player.stats.speed)
 	
 	current_selct_card = null
 	current_slot = -1
@@ -110,10 +118,26 @@ func _on_take_off_button_button_down() -> void:
 	# Move equipped item back to inventory list.
 	var item := current_selct_card.item
 	current_selct_card.item = null
-	var item_card = item_card_scene.instantiate() as ItemCard
-	item_card.item = item
-	equipments.add_child(item_card)
+	add_equipment_item_card(item)
+	
+	
+	Global.equiped_bones[current_slot]= null
+	item = item as BoneItem
+	var equip_context:= EffectContext.new()
+	equip_context.trigger_type = Global.ItemCallBack.ONUNLOAD
+	# Roll back effects that should happen on unload.
+	for packed_effect:PackedItemEffect in item.effects:
+		if packed_effect.trigger == Global.ItemCallBack.ONUNLOAD:
+			packed_effect.effect(equip_context)
 	
 	current_selct_card = null
 	current_slot = -1
 	take_off_button.disabled = true
+
+
+func add_equipment_item_card(item:ItemBase):
+	# Shared helper used by initial fill and unload operation.
+	var item_card := item_card_scene.instantiate() as ItemCard
+	item_card.item = item
+	equipments.add_child(item_card)
+	item_card.on_item_card_selected.connect(_on_item_card_selected)

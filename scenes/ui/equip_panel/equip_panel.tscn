@@ -3,12 +3,25 @@
 [ext_resource type="PackedScene" uid="uid://b71iqvdxs6dem" path="res://scenes/ui/item_card/item_card.tscn" id="1_i6br7"]
 [ext_resource type="Script" uid="uid://bi6f04w28hew0" path="res://scenes/ui/equip_panel/equip_panel.gd" id="1_m88xd"]
 [ext_resource type="Script" uid="uid://dowanpccbkp8p" path="res://resources/items/item_base.gd" id="2_euc2v"]
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="3_2xi03"]
 [ext_resource type="Texture2D" uid="uid://cvqbrfm8g7paj" path="res://assets/sprites/Upgrades/10.png" id="3_br2hk"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="4_3qld0"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="4_6rjri"]
 [ext_resource type="Texture2D" uid="uid://d3p6i6cxnf1sy" path="res://assets/sprites/Upgrades/4.png" id="5_3qld0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whl1y"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="Resource" id="Resource_yn1rx"]
+script = ExtResource("4_6rjri")
+chaged_stats = "speed"
+changed_value = 20.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_7l28p"]
+script = ExtResource("3_2xi03")
+_effect = SubResource("Resource_yn1rx")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
 [sub_resource type="Resource" id="Resource_2xi03"]
 script = ExtResource("4_3qld0")
@@ -22,9 +35,21 @@ item_vaild_slot = Dictionary[int, bool]({
 6: false,
 7: false
 })
+effects = Array[ExtResource("3_2xi03")]([SubResource("Resource_7l28p")])
 item_icon = ExtResource("3_br2hk")
 decrption_override = "[color=red]aaaaa[/red]"
 metadata/_custom_type_script = "uid://c4xh8anp7uons"
+
+[sub_resource type="Resource" id="Resource_mfpbl"]
+script = ExtResource("4_6rjri")
+chaged_stats = "speed"
+changed_value = 15.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_3syvv"]
+script = ExtResource("3_2xi03")
+_effect = SubResource("Resource_mfpbl")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
 [sub_resource type="Resource" id="Resource_6rjri"]
 script = ExtResource("4_3qld0")
@@ -38,6 +63,7 @@ item_vaild_slot = Dictionary[int, bool]({
 6: true,
 7: true
 })
+effects = Array[ExtResource("3_2xi03")]([SubResource("Resource_3syvv")])
 item_icon = ExtResource("5_3qld0")
 item_tier = 2
 decrption_override = "bbbbb"
