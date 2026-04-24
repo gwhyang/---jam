@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6d0lq4ikj3be" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="9_6w4xk"]
 [ext_resource type="PackedScene" uid="uid://ra1o3w8cgebs" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="9_xgbxb"]
 [ext_resource type="PackedScene" uid="uid://da6wnbouwsqba" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="10_2ml6w"]
+[ext_resource type="PackedScene" uid="uid://bvahcg4ecxfkm" path="res://scenes/ui/equip_panel/equip_panel.tscn" id="11_s83md"]
 [ext_resource type="Script" uid="uid://crubb2nlnlasu" path="res://fortest/summon_area.gd" id="12_s83md"]
 [ext_resource type="PackedScene" uid="uid://dcjllmys4wmoe" path="res://scenes/ui/selection_panel/selection_panel.tscn" id="12_vmsrg"]
 
@@ -52,6 +53,7 @@ one_shot = true
 
 [node name="ClearTimer" type="Timer" parent="Spawner" unique_id=520835521]
 unique_name_in_owner = true
+wait_time = 5.0
 one_shot = true
 
 [node name="TestClearTimer" type="Timer" parent="Spawner" unique_id=1820448058]
@@ -97,6 +99,9 @@ visible = false
 
 [node name="ShopPanel" parent="GameUI" unique_id=1582500305 instance=ExtResource("10_2ml6w")]
 unique_name_in_owner = true
+visible = false
+
+[node name="EquipPanel" parent="GameUI" unique_id=396670019 instance=ExtResource("11_s83md")]
 visible = false
 
 [node name="SelectionPanel" parent="GameUI" unique_id=1327096259 instance=ExtResource("12_vmsrg")]
