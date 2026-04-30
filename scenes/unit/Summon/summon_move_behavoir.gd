@@ -1,8 +1,8 @@
 extends Node2D
-class_name SummonMoveBehavoir
+class_name MoveBehavoir
 
 
-@onready var summon:Summon = get_parent()
+@onready var parent:Unit = get_parent()
 # Current frame velocity calculated by concrete movement behaviors.
 var velcity:Vector2
 
