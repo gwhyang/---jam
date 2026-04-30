@@ -16,6 +16,8 @@ var current_weapons: Array[Weapon] = []
 var move_dir: Vector2
 var is_dashing := false
 var dash_available := true
+var summon_timer:float = 0
+var should_amount:float =0
 
 func _ready() -> void:
 	super._ready()
@@ -38,7 +40,7 @@ func _process(delta: float) -> void:
 	
 	if can_dash():
 		start_dash()
-	
+	summon_timer_logic(delta)
 	update_animations()
 	update_rotation()
 
@@ -105,3 +107,24 @@ func _on_hp_regen_timer_timeout() -> void:
 		var heal := stats.hp_regen
 		health_component.heal(heal)
 		Global.on_create_heal_text.emit(self, heal)
+
+func summon_timer_logic(delta:float):
+	should_amount += delta * stats.summon_speed
+	if should_amount < 1:
+		return
+	for i in range(floorf(should_amount)):
+		var equip_context:= EffectContext.new()
+		equip_context.trigger_type = Global.ItemCallBack.ONSUMMONTIMEOUT
+		equip_context.summon_amount = stats.summon_amount
+		equip_context.global_posi = global_position
+		# Trigger all ONEQUIP effects declared on this bone item.
+		for slot in Global.equiped_bones:
+			var item := Global.equiped_bones[slot]
+			if not item is BoneItem:
+				continue
+			for packed_effect:PackedItemEffect in item.effects:
+				if packed_effect.trigger == Global.ItemCallBack.ONSUMMONTIMEOUT:
+					packed_effect.effect(equip_context)
+		should_amount -=1
+	
+	
