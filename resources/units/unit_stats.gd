@@ -21,3 +21,7 @@ enum UnitType {
 @export var hp_regen := 0.0
 @export var life_steal := 0.0
 @export var harvesting := 0.0
+@export var weight:int = 1
+@export var summon_speed:float = 2
+@export var summon_amount:int = 1
+@export var max_summons:int = 3

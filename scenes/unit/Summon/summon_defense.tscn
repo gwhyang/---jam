@@ -18,14 +18,14 @@ radius = 27.294687
 [node name="summon_defense" unique_id=918819364 instance=ExtResource("1_nlnhh")]
 stats = SubResource("Resource_4x2ng")
 
-[node name="Sprite" parent="Visuals" index="1"]
+[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="1" unique_id=1627346367]
 texture = ExtResource("3_73vpj")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=51283714]
 position = Vector2(-1, -17)
 shape = SubResource("CircleShape2D_bfpfs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1168141803]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(325032355) index="0" unique_id=1168141803]
 position = Vector2(-1, -22)
 shape = SubResource("CircleShape2D_l6mdo")
 debug_color = Color(0.7434065, 0.37632445, 0.7027685, 0.41960785)

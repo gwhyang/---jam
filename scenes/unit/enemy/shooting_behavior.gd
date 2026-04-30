@@ -3,6 +3,7 @@ class_name ShootingBehavior
 
 @export var enemy: Enemy
 @export var fire_pos: Marker2D
+@export var target_getter: TargetGetter
 @export var cooldown := 3.0
 @export var projectile_count := 3
 @export var arc_angle := 45.0
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		current_cooldown = cooldown
 
 func shoot() -> void:
-	if not is_instance_valid(Global.player):
+	if not is_instance_valid(target_getter.target):
 		return
 	
 	enemy.can_move = false

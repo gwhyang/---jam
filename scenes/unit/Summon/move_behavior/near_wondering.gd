@@ -1,4 +1,5 @@
-extends SummonMoveBehavoir
+extends MoveBehavoir
+class_name NearWonderMove
 enum MoveState{WONDER,CHASE}
 @export var fast := 1.7 ## 追赶速度倍率
 @export var normal := 1.0 ## 闲逛速度倍率
@@ -13,13 +14,13 @@ var current_dir:Vector2
 var change_dir_time:float
 
 func move(delta:float):
-	# This behavior keeps summon near player by switching between wandering and chasing.
+	# This behavior keeps parent near player by switching between wandering and chasing.
 	var player_posi:= Global.player.global_position
 	change_dir_time -= delta
 	match current_state:
 		MoveState.WONDER:
 			# Too far from player -> chase back.
-			if summon.global_position.distance_to(player_posi) >= far_dist:
+			if parent.global_position.distance_to(player_posi) >= far_dist:
 				current_state = MoveState.CHASE
 				change_dir_time = 0
 				return
@@ -27,13 +28,13 @@ func move(delta:float):
 			if change_dir_time <= 0:
 				change_dir_time = randf_range(wonder_time_range.x,wonder_time_range.y)
 				current_dir = Vector2.LEFT.rotated(randf()*TAU)
-			velcity = current_dir * normal * summon.stats.speed
+			velcity = current_dir * normal * parent.stats.speed
 		MoveState.CHASE:
 			# Close enough -> switch back to local wandering.
-			if summon.global_position.distance_to(player_posi) <=near_dist:
+			if parent.global_position.distance_to(player_posi) <=near_dist:
 				current_state = MoveState.WONDER
 				return
-			current_dir = summon.global_position.direction_to(player_posi)
-			velcity = current_dir * fast * summon.stats.speed
+			current_dir = parent.global_position.direction_to(player_posi)
+			velcity = current_dir * fast * parent.stats.speed
 	
-	summon.position += velcity*delta
+	parent.position += velcity*delta

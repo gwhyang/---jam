@@ -3,7 +3,8 @@ class_name Summon
 
 @onready var vision_area: Area2D = $VisionArea
 @onready var knockback_timer: Timer = $KnockbackTimer
-@onready var summon_move_behavoir: SummonMoveBehavoir = $SummonMoveBehavoir
+@onready var summon_move_behavoir: MoveBehavoir = $SummonMoveBehavoir
+@onready var target_getter: TargetGetter = %TargetGetter
 
 var can_move := true
 
