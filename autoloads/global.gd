@@ -155,16 +155,21 @@ func calculate_tier_probability(current_wave: int, config: Dictionary) -> Array[
 	]
 	
 func select_items_for_offer(item_pool: Array, current_wave: int, config: Dictionary) -> Array:
-	
+	const max_iteration = 64
 	# [0.7, 0.2, 0.08, 0.02]
 	var tier_chances := calculate_tier_probability(current_wave, config)
 	
 	var legendary_limit = tier_chances[3]
 	var epic_limit = legendary_limit + tier_chances[2]
 	var rare_limit = epic_limit + tier_chances[1]
-	
 	var offered_items: Array = []
+	
+	var illteration_times:int = 0
 	while offered_items.size() < 4:
+		if illteration_times >= max_iteration:
+			printerr("Can't load enough items in 64 iteration.")
+			break
+		illteration_times+=1
 		var roll := randf()
 		var chosen_tier_index := 0
 		if roll < legendary_limit:
@@ -176,7 +181,6 @@ func select_items_for_offer(item_pool: Array, current_wave: int, config: Diction
 		
 		var potential_items: Array = []
 		var current_search_tier_index := chosen_tier_index
-		
 		while potential_items.is_empty() and current_search_tier_index >= 0:
 			potential_items = item_pool.filter(func(item: ItemBase): return item.item_tier == current_search_tier_index)
 			
@@ -184,12 +188,14 @@ func select_items_for_offer(item_pool: Array, current_wave: int, config: Diction
 				current_search_tier_index -= 1
 			else:
 				break
-		
 		if not potential_items.is_empty():
 			var selected_item = potential_items.pick_random()
 			
 			if not offered_items.has(selected_item):
 				offered_items.append(selected_item)
+			
+			if offered_items.size() > item_pool.size():
+				break
 			
 	return offered_items
 	
