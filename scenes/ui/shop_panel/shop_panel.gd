@@ -2,6 +2,7 @@ extends Panel
 class_name ShopPanel
 
 signal on_shop_next_wave
+signal inventory_pressed
 
 const SHOP_CARD_SCENE = preload("res://scenes/ui/shop_card/shop_card.tscn")
 
@@ -139,3 +140,7 @@ func _on_sell_button_pressed() -> void:
 	
 	Global.coins += coins
 	
+
+
+func _on_inventory_button_down() -> void:
+	pass # Replace with function body.
