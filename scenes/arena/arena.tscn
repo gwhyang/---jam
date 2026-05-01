@@ -9,16 +9,52 @@
 [ext_resource type="Resource" uid="uid://tm3wrmicsrh3" path="res://resources/waves/data/wave_1_to_5.tres" id="9_2ml6w"]
 [ext_resource type="PackedScene" uid="uid://6d0lq4ikj3be" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="9_6w4xk"]
 [ext_resource type="PackedScene" uid="uid://ra1o3w8cgebs" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="9_xgbxb"]
-[ext_resource type="PackedScene" uid="uid://da6wnbouwsqba" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="10_2ml6w"]
+[ext_resource type="PackedScene" uid="uid://ed2aw1l2pwrl" path="res://scenes/ui/shop_panel/shop_panel_2.tscn" id="10_s83md"]
 [ext_resource type="PackedScene" uid="uid://bvahcg4ecxfkm" path="res://scenes/ui/equip_panel/equip_panel.tscn" id="11_s83md"]
 [ext_resource type="Script" uid="uid://crubb2nlnlasu" path="res://fortest/summon_area.gd" id="12_s83md"]
 [ext_resource type="PackedScene" uid="uid://dcjllmys4wmoe" path="res://scenes/ui/selection_panel/selection_panel.tscn" id="12_vmsrg"]
+[ext_resource type="Script" uid="uid://dowanpccbkp8p" path="res://resources/items/item_base.gd" id="12_w4nra"]
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="12_wqbss"]
+[ext_resource type="Script" uid="uid://10uvqqaxnaql" path="res://resources/item_effects/effects/summon.gd" id="13_fir7s"]
+[ext_resource type="Resource" uid="uid://b04ls125rjb6l" path="res://resources/items/bone/data/summon_head.tres" id="13_t3vx8"]
+[ext_resource type="PackedScene" uid="uid://b400yckp6hia3" path="res://scenes/unit/Summon/summon_melee.tscn" id="14_gy0qm"]
+[ext_resource type="Texture2D" uid="uid://byg3400qlcem6" path="res://assets/sprites/Upgrades/8.png" id="15_dh340"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="16_l0cts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ml6w"]
 font_size = 60
+
+[sub_resource type="Resource" id="Resource_la1fr"]
+script = ExtResource("13_fir7s")
+summon_scene = ExtResource("14_gy0qm")
+metadata/_custom_type_script = "uid://10uvqqaxnaql"
+
+[sub_resource type="Resource" id="Resource_w37ag"]
+script = ExtResource("12_wqbss")
+trigger = 4
+_effect = SubResource("Resource_la1fr")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_ybinm"]
+script = ExtResource("16_l0cts")
+item_vaild_slot = Dictionary[int, bool]({
+0: true,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("12_wqbss")]([SubResource("Resource_w37ag")])
+item_icon = ExtResource("15_dh340")
+decrption_override = "asasasas"
+item_cost = 1
+metadata/_custom_type_script = "uid://c4xh8anp7uons"
 
 [node name="Arena" type="Node2D" unique_id=1143503340]
 script = ExtResource("1_s83md")
@@ -97,11 +133,13 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 visible = false
 
-[node name="ShopPanel" parent="GameUI" unique_id=1582500305 instance=ExtResource("10_2ml6w")]
+[node name="ShopPanel" parent="GameUI" unique_id=396670019 node_paths=PackedStringArray("equip_panel") instance=ExtResource("10_s83md")]
 unique_name_in_owner = true
 visible = false
+equip_panel = NodePath("../EquipPanel")
+shop_items = Array[ExtResource("12_w4nra")]([SubResource("Resource_ybinm"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8")])
 
-[node name="EquipPanel" parent="GameUI" unique_id=396670019 instance=ExtResource("11_s83md")]
+[node name="EquipPanel" parent="GameUI" unique_id=962236813 instance=ExtResource("11_s83md")]
 unique_name_in_owner = true
 visible = false
 
@@ -117,5 +155,7 @@ script = ExtResource("12_s83md")
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner" method="_on_clear_timer_timeout"]
 [connection signal="timeout" from="Spawner/ClearTimer" to="Spawner/TestClearTimer" method="stop"]
 [connection signal="timeout" from="Spawner/TestClearTimer" to="Spawner" method="_on_test_clean_timer_timeout"]
-[connection signal="on_equip_panel_next_wave" from="GameUI/EquipPanel" to="." method="_on_equip_panel_on_equip_panel_next_wave"]
+[connection signal="on_shop_next_wave" from="GameUI/ShopPanel" to="." method="next_wave"]
+[connection signal="on_equip_panel_next_wave" from="GameUI/EquipPanel" to="." method="next_wave"]
+[connection signal="shop_pressed" from="GameUI/EquipPanel" to="GameUI/EquipPanel" method="hide"]
 [connection signal="on_selection_completed" from="GameUI/SelectionPanel" to="." method="_on_selection_panel_on_selection_completed"]

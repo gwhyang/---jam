@@ -313,13 +313,6 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="NewWaveButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=982866534]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_ws1b3")
-text = "next wave"
-
-[node name="Inventory" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=608428235]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ws1b3")
@@ -327,7 +320,6 @@ text = "next wave"
 
 [node name="CombineButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=1110805232]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fjhgy")
@@ -347,6 +339,5 @@ offset_right = 149.0
 offset_bottom = 96.0
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NewWaveButton" to="." method="_on_new_wave_button_pressed"]
-[connection signal="button_down" from="MarginContainer/Control/VBoxContainer/Inventory" to="." method="_on_inventory_button_down"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CombineButton" to="." method="_on_combine_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]

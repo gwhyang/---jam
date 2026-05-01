@@ -313,11 +313,11 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 29
 
-[node name="Inventory" type="Button" parent="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control2/VBoxContainer" unique_id=1827182567]
+[node name="Shop" type="Button" parent="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control2/VBoxContainer" unique_id=1827182567]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ws1b3")
-text = "next wave"
+text = "Shop"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Control/HBoxContainer" unique_id=420922842]
 layout_mode = 2
@@ -353,5 +353,5 @@ columns = 4
 
 [connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control/VBoxContainer/EquipButton" to="." method="_on_equip_button_button_down"]
 [connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control/VBoxContainer/TakeOffButton" to="." method="_on_take_off_button_button_down"]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control2/VBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/Control2/VBoxContainer/Shop" to="." method="_on_inventory_pressed"]
 [connection signal="button_down" from="MarginContainer/Control/HBoxContainer/VBoxContainer3/HBoxContainer/NextWave" to="." method="_on_next_wave_button_down"]

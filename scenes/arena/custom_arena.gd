@@ -6,10 +6,13 @@ func _on_spawner_on_wave_completed() -> void:
 	clean_arena()
 	#await get_tree().create_timer(1.0).timeout
 	# Custom flow: open equip panel directly instead of shop panel.
-	equip_panel.show()
+	#equip_panel.show()
+	shop_panel.load_shop(spawner.wave_index)
+	shop_panel.show()
 	clean_arena()
 
 
-func _on_equip_panel_on_equip_panel_next_wave() -> void:
+func next_wave() -> void:
 	equip_panel.hide()
+	shop_panel.hide()
 	start_new_wave()

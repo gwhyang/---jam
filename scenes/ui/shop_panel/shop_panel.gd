@@ -2,7 +2,6 @@ extends Panel
 class_name ShopPanel
 
 signal on_shop_next_wave
-signal inventory_pressed
 
 const SHOP_CARD_SCENE = preload("res://scenes/ui/shop_card/shop_card.tscn")
 
@@ -30,7 +29,6 @@ func load_shop(current_wave: int) -> void:
 		card_instance.on_item_purchased.connect(_on_item_purchased)
 		items_container.add_child(card_instance)
 		card_instance.shop_item = shop_item
-			
 
 func create_item_card() -> ItemCard:
 	var item_card := Global.ITEM_CARD_SCENE.instantiate() as ItemCard
@@ -124,7 +122,7 @@ func _on_sell_button_pressed() -> void:
 	if not context_card:
 		return
 	
-	var clicked_weapon := context_card.item as ItemWeapon
+	var clicked_weapon := context_card.item # as ItemWeapon
 	var coins := clicked_weapon.item_cost * 0.75
 	
 	var weapon_to_remove: Weapon = Global.player.current_weapons.filter(func(w: Weapon):
