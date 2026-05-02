@@ -17,9 +17,10 @@ signal on_selection_completed
 @onready var player_title: Label = %PlayerTitle
 @onready var player_description: RichTextLabel = %PlayerDescription
 
-var initial_item_card:ItemCard
-
 func _ready() -> void:
+	initialize()
+
+func initialize()->void:
 	for child in player_container.get_children(): child.queue_free()
 	for child in weapon_container.get_children(): child.queue_free()
 	for child in item_container.get_children(): child.queue_free()
@@ -28,8 +29,6 @@ func _ready() -> void:
 	load_players()
 	load_weapons()
 	load_items()
-	
-
 
 func load_players() -> void:
 	if players.is_empty():
@@ -40,7 +39,6 @@ func load_players() -> void:
 		card.pressed.connect(_on_player_selected.bind(player))
 		player_container.add_child(card)
 		card.set_icon(player.icon)
-		
 
 func load_weapons() -> void:
 	if start_weapons.is_empty():
@@ -67,7 +65,6 @@ func show_player_info(value: bool) -> void:
 	player_name.visible = value
 	player_title.visible = value
 	player_description.visible = value
-	
 
 func _on_player_selected(player: UnitStats) -> void:
 	Global.main_player_selected = player
@@ -78,14 +75,7 @@ func _on_player_selected(player: UnitStats) -> void:
 	player_description.text = "[code]Health: [color=green]%s[/color]\nDamage: [color=green]%s[/color]\nSpeed: [color=green]%s[/color]\nLuck: [color=green]%s[/color]\nBlock Chance: [color=green]%s%%[/color][/code]" % [player.health, player.damage, player.speed, player.luck, player.block_chance]
 
 func _on_item_selected(item:BoneItem):
-	if not initial_item_card:
-		initial_item_card = equip_panel.add_equipment_item_card(item)
-	else:
-		initial_item_card.item = item
-	
-	initial_item_card.hide()
-	equip_panel.equip_item(Global.BoneSlot.head,item)
-	equip_panel.slot_card[Global.BoneSlot.head] = initial_item_card
+	Global.main_skull_item_selected = item
 
 func _on_weapon_selected(weapon: ItemWeapon) -> void:
 	Global.main_weapon_selected = weapon

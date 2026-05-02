@@ -24,7 +24,6 @@ func _ready() -> void:
 	super._ready()
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
-	
 
 func _process(delta: float) -> void:
 	if Global.game_paused: return
@@ -45,7 +44,6 @@ func _process(delta: float) -> void:
 	update_animations()
 	update_rotation()
 
-
 func add_weapon(data: ItemWeapon) -> void:
 	var weapon := data.scene.instantiate() as Weapon
 	add_child(weapon)
@@ -54,7 +52,6 @@ func add_weapon(data: ItemWeapon) -> void:
 	current_weapons.append(weapon)
 	weapon_container.update_weapons_position(current_weapons)
 	
-
 func update_animations() -> void:
 	if move_dir.length() > 0:
 		anim_player.play("move")
@@ -82,7 +79,6 @@ func can_dash() -> bool:
 	dash_cooldown_timer.is_stopped() and\
 	Input.is_action_just_pressed("dash") and\
 	move_dir != Vector2.ZERO
-	
 
 func is_facing_right() -> bool:
 	return visuals.scale.x == -0.5
@@ -90,7 +86,6 @@ func is_facing_right() -> bool:
 func update_player_new_wave() -> void:
 	stats.health += stats.health_increase_per_wave
 	health_component.setup(stats)
-	
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
@@ -98,7 +93,6 @@ func _on_dash_timer_timeout() -> void:
 	move_dir = Vector2.ZERO
 	collision.set_deferred("disabled", false)
 	dash_cooldown_timer.start()
-
 
 func _on_hp_regen_timer_timeout() -> void:
 	if health_component.current_health <= 0:
@@ -133,9 +127,6 @@ func summon_timer_logic(delta:float):
 				if packed_effect.trigger == Global.ItemCallBack.ONSUMMONTIMEOUT:
 					packed_effect.effect(equip_context)
 		should_amount -=1
-	
-	
-
 
 func _on_health_component_on_unit_died() -> void:
 	Game.game_lose.emit()

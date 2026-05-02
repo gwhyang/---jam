@@ -26,3 +26,8 @@ func _on_sell_button_pressed() -> void:
 	# 检查是否在装备上
 	# 删除equip panel里面的
 	# 引用super逻辑
+
+func reset():
+	card_to_equip.clear()
+	for c in passives_container.get_children():
+		c.queue_free()

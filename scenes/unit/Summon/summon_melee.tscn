@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_chn41"]
 script = ExtResource("2_lpbs1")
-health = 20
+health = 3
 speed = 400.0
 weight = 5
 metadata/_custom_type_script = "uid://5tkkf27wtphe"

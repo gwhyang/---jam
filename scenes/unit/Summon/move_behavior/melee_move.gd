@@ -35,7 +35,7 @@ func move(delta:float):
 	hitbox_component.enable()
 	var stats:=parent.stats
 	var player_ststs := Global.player.stats
-	var dmg := stats.damage+(player_ststs.damage)/3
+	var dmg := stats.damage+player_ststs.extra_summon_damage
 	
 	hitbox_component.setup(dmg,false,1,parent)#TODO
 	chase_tween  = create_tween()

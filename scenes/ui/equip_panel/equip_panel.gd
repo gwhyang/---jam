@@ -18,7 +18,7 @@ var rleg=Global.BoneSlot.rleg
 @onready var item_card_scene:PackedScene = preload("res://scenes/ui/item_card/item_card.tscn")
 @onready var display_card_scene:PackedScene = preload("res://scenes/ui/display_card/display_card.tscn")
 
-@onready var equip_slots_ui:Dictionary[int,ItemCard] = {
+@onready var equip_slots_ui:Dictionary[Global.BoneSlot,ItemCard] = {
 	head:%head,
 	lhand:%hand0,
 	lrib:%rib0,
@@ -26,8 +26,7 @@ var rleg=Global.BoneSlot.rleg
 	rrib:%rib1,
 	rhand:%hand1,
 	lleg:%leg0,
-	rleg:%leg1
-}
+	rleg:%leg1}
 @onready var item_description: RichTextLabel = %ItemDescription
 @onready var equipments: GridContainer = %Equipments
 #@onready var summons: GridContainer = %Summons
@@ -42,11 +41,15 @@ var slot_card:Dictionary[Global.BoneSlot,ItemCard]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	item_description.text = "[color=red]aaaaa[color=red]"
+	#item_description.text = "[color=red]aaaaa[color=red]"
 	set_equipments()
 	for slot in equip_slots_ui:
 		equip_slots_ui[slot].on_item_card_selected.connect(_on_slot_selected)
 
+func clear_slots()->void:
+	slot_card.clear()
+	for slot in equip_slots_ui:
+		equip_slots_ui[slot].item = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -58,8 +61,7 @@ func set_equipments():
 		c.queue_free()
 	for i in items_in_pack.size():
 		add_equipment_item_card(items_in_pack[i])
-		
-		
+
 func _on_item_card_selected(card: ItemCard):
 	# Selecting inventory item prepares a valid target slot for equip action.
 	current_selct_card = card
@@ -167,7 +169,6 @@ func equip_take_off(slot:Global.BoneSlot):
 	
 	# inventory list中对应的卡片可见
 	card.show()
-		
 
 func _on_take_off_button_button_down() -> void:
 	if not (current_selct_card and current_selct_card.item):
@@ -201,7 +202,6 @@ func _on_take_off_button_button_down() -> void:
 	current_slot = -1
 	take_off_button.disabled = true
 
-
 func add_equipment_item_card(item:ItemBase)-> ItemCard:
 	# Shared helper used by initial fill and unload operation.
 	var item_card := item_card_scene.instantiate() as ItemCard
@@ -210,10 +210,8 @@ func add_equipment_item_card(item:ItemBase)-> ItemCard:
 	item_card.on_item_card_selected.connect(_on_item_card_selected)
 	return item_card
 
-
 func _on_next_wave_button_down() -> void:
 	on_equip_panel_next_wave.emit()
-
 
 func _on_inventory_pressed() -> void:
 	shop_pressed.emit()

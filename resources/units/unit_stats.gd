@@ -25,3 +25,4 @@ enum UnitType {
 @export var summon_speed:float = 2
 @export var summon_amount:int = 1
 @export var max_summons:int = 3
+@export var extra_summon_damage:float = 0

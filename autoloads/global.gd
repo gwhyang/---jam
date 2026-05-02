@@ -85,27 +85,24 @@ var game_paused := false
 
 var main_player_selected: UnitStats
 var main_weapon_selected: ItemWeapon
+var main_skull_item_selected: BoneItem
 
 var equipped_weapons: Array[ItemWeapon]
 
 func get_harvesting_coins() -> void:
 	coins += player.stats.harvesting
 
-
 func get_selected_player() -> Player:
 	var player_scene := available_players[main_player_selected.name]
 	var player_instance := player_scene.instantiate()
 	player = player_instance
 	return player
-	
-
 
 func get_chance_sucess(chance: float) -> bool:
 	var random := randf_range(0, 1.0)
 	if random < chance:
 		return true
 	return false
-	
 
 func get_tier_style(tier: UpgradeTier) -> StyleBoxFlat:
 	match tier:
@@ -158,7 +155,7 @@ func calculate_tier_probability(current_wave: int, config: Dictionary) -> Array[
 		max(0.0, epic_chance),
 		max(0.0, legendary_chance),
 	]
-	
+
 func select_items_for_offer(item_pool: Array, current_wave: int, config: Dictionary) -> Array:
 	const max_iteration = 64
 	# [0.7, 0.2, 0.08, 0.02]
@@ -203,7 +200,6 @@ func select_items_for_offer(item_pool: Array, current_wave: int, config: Diction
 				break
 			
 	return offered_items
-	
 
 func callback_items(allowed_triggers:Array[Global.ItemCallBack],effect_context:EffectContext):
 	# Trigger all ONEQUIP effects declared on this bone item.

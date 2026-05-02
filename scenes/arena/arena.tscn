@@ -186,3 +186,6 @@ visible = false
 [connection signal="on_equip_panel_next_wave" from="GameUI/EquipPanel" to="." method="next_wave"]
 [connection signal="shop_pressed" from="GameUI/EquipPanel" to="GameUI/EquipPanel" method="hide"]
 [connection signal="on_selection_completed" from="GameUI/SelectionPanel" to="." method="_on_selection_panel_on_selection_completed"]
+[connection signal="game_end" from="GameUI/EndPanel" to="." method="initialize_run"]
+[connection signal="restar_button_pressed" from="GameUI/EndPanel" to="GameUI/SelectionPanel" method="show"]
+[connection signal="restar_button_pressed" from="GameUI/EndPanel" to="GameUI/EndPanel" method="hide"]

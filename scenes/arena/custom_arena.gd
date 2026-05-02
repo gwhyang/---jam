@@ -1,6 +1,7 @@
 extends Arena
-@onready var equip_panel: Panel = %EquipPanel
+@onready var equip_panel: EquipPanel = %EquipPanel
 @onready var end_panel: EndPanel = $GameUI/EndPanel
+
 
 func _on_spawner_on_wave_completed() -> void:
 	if not Global.player: return
@@ -18,3 +19,17 @@ func next_wave() -> void:
 	equip_panel.hide()
 	shop_panel.hide()
 	start_new_wave()
+
+func initialize_run()->void:
+	equip_panel.clear_slots()
+	shop_panel.reset()
+	clean_arena()
+	spawner.wave_index = 1
+
+func _on_selection_panel_on_selection_completed() -> void:
+	var initial_item_card = equip_panel.add_equipment_item_card(Global.main_skull_item_selected)
+	
+	initial_item_card.hide()
+	equip_panel.equip_item(Global.BoneSlot.head,Global.main_skull_item_selected)
+	equip_panel.slot_card[Global.BoneSlot.head] = initial_item_card
+	super()
