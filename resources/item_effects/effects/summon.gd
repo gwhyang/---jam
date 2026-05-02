@@ -15,4 +15,5 @@ func effect(context:EffectContext)->bool:
 		if Global.get_tree().get_nodes_in_group("summon_unit").size() >= Global.player.stats.max_summons:
 			return true
 		Game.summon(summon_scene,summon_posi)
+		Global.game_statistic["total summoned"] +=1
 	return true

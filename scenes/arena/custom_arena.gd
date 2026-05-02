@@ -1,5 +1,6 @@
 extends Arena
 @onready var equip_panel: Panel = %EquipPanel
+@onready var end_panel: EndPanel = $GameUI/EndPanel
 
 func _on_spawner_on_wave_completed() -> void:
 	if not Global.player: return
@@ -13,6 +14,7 @@ func _on_spawner_on_wave_completed() -> void:
 
 
 func next_wave() -> void:
+	Global.game_statistic["gained turn"] = spawner.wave_index
 	equip_panel.hide()
 	shop_panel.hide()
 	start_new_wave()
