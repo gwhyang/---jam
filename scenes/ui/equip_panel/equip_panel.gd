@@ -30,7 +30,7 @@ var rleg=Global.BoneSlot.rleg
 }
 @onready var item_description: RichTextLabel = %ItemDescription
 @onready var equipments: GridContainer = %Equipments
-@onready var summons: GridContainer = %Summons
+#@onready var summons: GridContainer = %Summons
 @onready var equip_button: Button = %EquipButton
 @onready var take_off_button: Button = %TakeOffButton
 
@@ -120,6 +120,10 @@ func _on_equip_button_button_down() -> void:
 	equip_button.disabled = true
 
 func equip_item(slot:Global.BoneSlot,item:BoneItem):
+	#if Global.player:
+		#
+		#print(Global.player.stats.damage)
+		#print(Global.player.stats.speed)
 	equip_slots_ui[slot].item = item
 	Global.equiped_bones[slot]= item
 	item = item as BoneItem
@@ -131,6 +135,10 @@ func equip_item(slot:Global.BoneSlot,item:BoneItem):
 		for trigger in allowed_triggers:
 			if packed_effect.trigger == trigger:
 				packed_effect.effect(equip_context)
+	#if Global.player:
+		#
+		#print(Global.player.stats.damage)
+		#print(Global.player.stats.speed)
 
 func equip_take_off(slot:Global.BoneSlot):
 	#TODO finish slot card mapping in on_take_off..

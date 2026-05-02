@@ -52,26 +52,6 @@ var available_players: Dictionary[String, PackedScene] = {
 	"Well Rounded": preload("res://scenes/unit/players/player_well_rounded.tscn"),
 	
 }
-
-
-enum UpgradeTier{
-	COMMON,
-	RARE,
-	EPIC,
-	LEGENDARY
-}
-enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
-enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONSUMMONTIMEOUT,ONPLAYERDIE,APPLYSUMMON,SUMMONSPAWN}
-enum BuffType{INVISIBLE}
-
-var coins: int = 500
-var player: Player
-var game_paused := false
-
-var main_player_selected: UnitStats
-var main_weapon_selected: ItemWeapon
-
-var equipped_weapons: Array[ItemWeapon]
 var equiped_bones: Dictionary[BoneSlot,ItemBase]={
 	BoneSlot.head : null,
 	BoneSlot.lhand : null,
@@ -82,6 +62,31 @@ var equiped_bones: Dictionary[BoneSlot,ItemBase]={
 	BoneSlot.lleg : null,
 	BoneSlot.rleg : null
 	}
+var game_statistic:Dictionary[String,int]={
+	"gained turn": 0,
+	"killed enemys":0,
+	"total summoned": 0,
+	"gained bone":0
+}
+
+enum UpgradeTier{
+	COMMON,
+	RARE,
+	EPIC,
+	LEGENDARY
+}
+enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
+enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONSUMMONTIMEOUT,ONPLAYERDIE,ONPUNITDIE,APPLYSUMMON,SUMMONSPAWN}
+enum BuffType{INVISIBLE}
+
+var coins: int = 500
+var player: Player
+var game_paused := false
+
+var main_player_selected: UnitStats
+var main_weapon_selected: ItemWeapon
+
+var equipped_weapons: Array[ItemWeapon]
 
 func get_harvesting_coins() -> void:
 	coins += player.stats.harvesting
@@ -199,3 +204,13 @@ func select_items_for_offer(item_pool: Array, current_wave: int, config: Diction
 			
 	return offered_items
 	
+
+func callback_items(allowed_triggers:Array[Global.ItemCallBack],effect_context:EffectContext):
+	# Trigger all ONEQUIP effects declared on this bone item.
+	for slot in equiped_bones:
+		if not equiped_bones[slot]:
+			continue
+		for packed_effect:PackedItemEffect in equiped_bones[slot].effects:
+			for trigger in allowed_triggers:
+				if packed_effect.trigger == trigger:
+					packed_effect.effect(effect_context)

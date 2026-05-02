@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://b04ls125rjb6l"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_xf5u1"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_dumsj"]
+[ext_resource type="Script" uid="uid://10uvqqaxnaql" path="res://resources/item_effects/effects/summon.gd" id="2_oqab4"]
+[ext_resource type="PackedScene" uid="uid://b400yckp6hia3" path="res://scenes/unit/Summon/summon_melee.tscn" id="3_ajsss"]
+[ext_resource type="Texture2D" uid="uid://byg3400qlcem6" path="res://assets/sprites/Upgrades/8.png" id="4_ajsss"]
+
+[sub_resource type="Resource" id="Resource_la1fr"]
+script = ExtResource("2_oqab4")
+summon_scene = ExtResource("3_ajsss")
+metadata/_custom_type_script = "uid://10uvqqaxnaql"
+
+[sub_resource type="Resource" id="Resource_w37ag"]
+script = ExtResource("1_xf5u1")
+trigger = 4
+_effect = SubResource("Resource_la1fr")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_dumsj")
+item_vaild_slot = Dictionary[int, bool]({
+0: true,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("1_xf5u1")]([SubResource("Resource_w37ag")])
+item_icon = ExtResource("4_ajsss")
+decrption_override = "asasasas"
+item_cost = 1
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

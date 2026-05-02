@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://ra1o3w8cgebs" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="9_xgbxb"]
 [ext_resource type="PackedScene" uid="uid://ed2aw1l2pwrl" path="res://scenes/ui/shop_panel/shop_panel_2.tscn" id="10_s83md"]
 [ext_resource type="PackedScene" uid="uid://bvahcg4ecxfkm" path="res://scenes/ui/equip_panel/equip_panel.tscn" id="11_s83md"]
-[ext_resource type="Script" uid="uid://crubb2nlnlasu" path="res://fortest/summon_area.gd" id="12_s83md"]
 [ext_resource type="PackedScene" uid="uid://dcjllmys4wmoe" path="res://scenes/ui/selection_panel/selection_panel.tscn" id="12_vmsrg"]
 [ext_resource type="Script" uid="uid://dowanpccbkp8p" path="res://resources/items/item_base.gd" id="12_w4nra"]
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="12_wqbss"]
@@ -20,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://b400yckp6hia3" path="res://scenes/unit/Summon/summon_melee.tscn" id="14_gy0qm"]
 [ext_resource type="Texture2D" uid="uid://byg3400qlcem6" path="res://assets/sprites/Upgrades/8.png" id="15_dh340"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="16_l0cts"]
+[ext_resource type="Script" uid="uid://7e4rrmweiw5r" path="res://resources/items/weapons/item_weapon.gd" id="20_l0cts"]
+[ext_resource type="Texture2D" uid="uid://dxl550mv1d5l6" path="res://assets/sprites/Upgrades/3.png" id="21_ybinm"]
+[ext_resource type="PackedScene" uid="uid://dg1h8yasmsxgn" path="res://scenes/weapons/hand/hand_wepon.tscn" id="22_5ilg6"]
+[ext_resource type="Script" uid="uid://ce7kbvo7gs6or" path="res://resources/items/weapons/weapon_stats.gd" id="23_bxbl0"]
+[ext_resource type="Resource" uid="uid://x0okk6a5i7bx" path="res://resources/items/weapons/melee/axe/item_axe_4.tres" id="24_c13hg"]
+[ext_resource type="PackedScene" uid="uid://cdxc16ad22r61" path="res://scenes/ui/end_panel/end_panel.tscn" id="25_ybinm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
@@ -56,6 +61,24 @@ decrption_override = "asasasas"
 item_cost = 1
 metadata/_custom_type_script = "uid://c4xh8anp7uons"
 
+[sub_resource type="Resource" id="Resource_lur41"]
+script = ExtResource("23_bxbl0")
+accuracy = 1.0
+cooldown = 0.5
+crit_chance = 1.0
+crit_damage = 1000.0
+knockback = 2.0
+life_steal = 1.0
+metadata/_custom_type_script = "uid://ce7kbvo7gs6or"
+
+[sub_resource type="Resource" id="Resource_rjdwg"]
+script = ExtResource("20_l0cts")
+scene = ExtResource("22_5ilg6")
+stats = SubResource("Resource_lur41")
+upgrade_to = ExtResource("24_c13hg")
+item_icon = ExtResource("21_ybinm")
+metadata/_custom_type_script = "uid://7e4rrmweiw5r"
+
 [node name="Arena" type="Node2D" unique_id=1143503340]
 script = ExtResource("1_s83md")
 normal_color = Color(1, 1, 1, 1)
@@ -89,7 +112,7 @@ one_shot = true
 
 [node name="ClearTimer" type="Timer" parent="Spawner" unique_id=520835521]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 0.1
 one_shot = true
 
 [node name="TestClearTimer" type="Timer" parent="Spawner" unique_id=1820448058]
@@ -143,10 +166,14 @@ shop_items = Array[ExtResource("12_w4nra")]([SubResource("Resource_ybinm"), ExtR
 unique_name_in_owner = true
 visible = false
 
-[node name="SelectionPanel" parent="GameUI" unique_id=1327096259 instance=ExtResource("12_vmsrg")]
+[node name="SelectionPanel" parent="GameUI" unique_id=1327096259 node_paths=PackedStringArray("equip_panel") instance=ExtResource("12_vmsrg")]
+start_weapons = Array[ExtResource("20_l0cts")]([SubResource("Resource_rjdwg"), ExtResource("24_c13hg")])
+equip_panel = NodePath("../EquipPanel")
+
+[node name="EndPanel" parent="GameUI" unique_id=213429442 instance=ExtResource("25_ybinm")]
+visible = false
 
 [node name="Node2D" type="Node2D" parent="." unique_id=759593665]
-script = ExtResource("12_s83md")
 
 [connection signal="on_wave_completed" from="Spawner" to="." method="_on_spawner_on_wave_completed"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

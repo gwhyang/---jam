@@ -10,6 +10,7 @@ class_name Player
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var trail: Trail = %Trail
 @onready var weapon_container: WeaponContainer = $WeaponContainer
+@onready var summon_process_bar: TextureProgressBar = $SummonProcessBar
 
 var current_weapons: Array[Weapon] = []
 
@@ -109,7 +110,13 @@ func _on_hp_regen_timer_timeout() -> void:
 		Global.on_create_heal_text.emit(self, heal)
 
 func summon_timer_logic(delta:float):
+	if Global.get_tree().get_nodes_in_group("summon_unit").size() >= Global.player.stats.max_summons:
+		should_amount = 0
+		summon_process_bar.hide()
+		return
 	should_amount += delta * stats.summon_speed
+	summon_process_bar.show()
+	summon_process_bar.value = should_amount
 	if should_amount < 1:
 		return
 	for i in range(floorf(should_amount)):
@@ -128,3 +135,9 @@ func summon_timer_logic(delta:float):
 		should_amount -=1
 	
 	
+
+
+func _on_health_component_on_unit_died() -> void:
+	Game.game_lose.emit()
+	#TODO player die context
+	pass

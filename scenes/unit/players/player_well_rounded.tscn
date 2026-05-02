@@ -18,6 +18,42 @@ radius = 4.47214
 [sub_resource type="CircleShape2D" id="CircleShape2D_ht2l1"]
 radius = 32.0
 
+[sub_resource type="Gradient" id="Gradient_20xkg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.4382716, 0.64506173)
+colors = PackedColorArray(1, 1, 1, 0, 0.19076231, 0.19076234, 0.19076231, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_45lct"]
+gradient = SubResource("Gradient_20xkg")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_45lct"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.36728394, 0.4382716, 0.65123457, 0.70987654)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pe88o"]
+gradient = SubResource("Gradient_45lct")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_nt3k5"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.4382716, 0.64506173)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0.7764706, 0.5294118, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xtp8n"]
+gradient = SubResource("Gradient_nt3k5")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="PlayerWellRounded" unique_id=2117836896 instance=ExtResource("1_wkafa")]
 collision_mask = 2
 script = ExtResource("2_etcc1")
@@ -26,7 +62,7 @@ dash_speed_multi = 2.7
 dash_cooldown = 1.5
 stats = ExtResource("3_xa7el")
 
-[node name="Trail" type="Line2D" parent="Visuals" index="0" unique_id=1670535078 node_paths=PackedStringArray("player")]
+[node name="Trail" type="Line2D" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="0" unique_id=1670535078 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 top_level = true
 position = Vector2(0, -25)
@@ -36,16 +72,16 @@ width_curve = SubResource("Curve_ht2l1")
 script = ExtResource("4_0kki1")
 player = NodePath("../..")
 
-[node name="Shadow" parent="Visuals" index="1"]
+[node name="Shadow" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="1" unique_id=1314218701]
 z_index = 1
 
-[node name="Sprite" parent="Visuals" index="2"]
+[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="2" unique_id=1627346367]
 z_index = 1
 material = ExtResource("5_viu20")
 use_parent_material = true
 texture = ExtResource("5_ht2l1")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=51283714]
 z_index = 1
 position = Vector2(0, -29)
 shape = SubResource("CircleShape2D_xa7el")
@@ -143,7 +179,7 @@ one_shot = true
 unique_name_in_owner = true
 one_shot = true
 
-[node name="HurtboxComponent" parent="." index="7"]
+[node name="HurtboxComponent" parent="." index="7" unique_id=325032355]
 collision_layer = 32
 collision_mask = 4
 
@@ -156,6 +192,24 @@ shape = SubResource("CircleShape2D_ht2l1")
 wait_time = 3.0
 autostart = true
 
+[node name="SummonProcessBar" type="TextureProgressBar" parent="." index="12" unique_id=2108898420]
+offset_left = 62.0
+offset_top = -89.00001
+offset_right = 102.0
+offset_bottom = -49.000008
+scale = Vector2(0.62, 0.62)
+max_value = 1.0
+step = 0.001
+allow_greater = true
+allow_lesser = true
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_45lct")
+texture_over = SubResource("GradientTexture2D_pe88o")
+texture_progress = SubResource("GradientTexture2D_xtp8n")
+tint_over = Color(1, 1, 1, 0)
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="Visuals/Trail" method="_on_trail_timer_timeout"]
+[connection signal="on_unit_died" from="HealthComponent" to="." method="_on_health_component_on_unit_died"]
 [connection signal="timeout" from="HPRegenTimer" to="." method="_on_hp_regen_timer_timeout"]

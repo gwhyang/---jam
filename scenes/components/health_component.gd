@@ -25,6 +25,12 @@ func take_damage(value: float) -> void:
 	
 	if current_health <= 0:
 		current_health = 0
+		var die_context:= EffectContext.new()
+		die_context.trigger_type = Global.ItemCallBack.ONPUNITDIE
+		die_context.unit = owner
+		Global.callback_items([Global.ItemCallBack.ONPUNITDIE],die_context)
+		if current_health > 0:
+			return
 		on_unit_died.emit()
 		die()
 		

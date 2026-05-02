@@ -48,7 +48,7 @@ func reset_knockback()-> void:
 	knockback_dir = Vector2.ZERO
 	knockback_power = 0.0
 
-func destroy_enemy() -> void:
+func destroy() -> void:
 	can_move = false
 	anim_player.play("die")
 	await anim_player.animation_finished

@@ -11,6 +11,8 @@ const grid_size:float = 64
 var target:Unit
 
 func _process(_delta: float) -> void:
+	if Global.game_paused:
+		return
 	if not target:
 		target = get_target()
 

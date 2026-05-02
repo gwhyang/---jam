@@ -1,7 +1,8 @@
+BoneItem
+ItemWeapon
 ItemPassive
 ItemBase
 ItemUpgrade
 WaveData
 WeaponStats
-ItemWeapon
 UnitStats

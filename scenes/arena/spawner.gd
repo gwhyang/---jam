@@ -22,6 +22,8 @@ var spawned_summons: Array[Summon] = []
 var spawned_bodys: Array[Body] = []
 var is_cleaned_last_test:bool = false
 
+
+
 func find_wave_data() -> WaveData:
 	for wave in waves_data:
 		if wave and wave.is_valid_index(wave_index):
@@ -153,6 +155,12 @@ func clear_bodies()->void:
 		if is_instance_valid(body):
 			body.destory()
 	spawned_bodys.clear()
+
+func clear_summons()->void:
+	for summon in spawned_summons:
+		if is_instance_valid(summon):
+			summon.destroy()
+	spawned_summons.clear()
 
 func get_wave_text() -> String:
 	return "Wave %s" % wave_index

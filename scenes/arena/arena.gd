@@ -64,6 +64,7 @@ func clean_arena() -> void:
 	gold_list.clear()
 	spawner.clear_enemies()
 	spawner.clear_bodies()
+	spawner.clear_summons()
 
 
 func spawn_coins(enemy: Enemy) -> void:
@@ -118,8 +119,8 @@ func _on_shop_panel_on_shop_next_wave() -> void:
 
 func _on_enemy_died(enemy: Enemy) -> void:
 	spawn_coins(enemy)
-	if enemy.body_scene:
-		spawner.spawn_body(enemy.body_scene,enemy.global_position)
+	#if enemy.body_scene:
+		#spawner.spawn_body(enemy.body_scene,enemy.global_position)
 		#spawner.call_deferred("spawn_body",[enemy.body_scene,enemy.global_position])
 
 

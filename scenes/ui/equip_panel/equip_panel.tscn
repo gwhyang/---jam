@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="4_6rjri"]
 [ext_resource type="Texture2D" uid="uid://d3p6i6cxnf1sy" path="res://assets/sprites/Upgrades/4.png" id="5_3qld0"]
 [ext_resource type="Resource" uid="uid://b04ls125rjb6l" path="res://resources/items/bone/data/summon_head.tres" id="8_7l28p"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="9_mfpbl"]
+[ext_resource type="Texture2D" uid="uid://c12thf546nxm8" path="res://assets/sprites/Gold/gold_3.png" id="10_3syvv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whl1y"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 1)
@@ -71,6 +73,48 @@ item_tier = 2
 decrption_override = "bbbbb"
 metadata/_custom_type_script = "uid://c4xh8anp7uons"
 
+[sub_resource type="Resource" id="Resource_fwhhd"]
+script = ExtResource("4_6rjri")
+chaged_stats = "speed"
+changed_value = -250.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_j1ysc"]
+script = ExtResource("3_2xi03")
+trigger = 2
+_effect = SubResource("Resource_fwhhd")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_arara"]
+script = ExtResource("4_6rjri")
+chaged_stats = "damage"
+changed_value = 11111100.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_n8pgl"]
+script = ExtResource("3_2xi03")
+trigger = 2
+_effect = SubResource("Resource_arara")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_ntn0t"]
+script = ExtResource("4_3qld0")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: true,
+7: true
+})
+effects = Array[ExtResource("3_2xi03")]([SubResource("Resource_j1ysc"), SubResource("Resource_n8pgl")])
+item_name = "aaaa"
+item_icon = ExtResource("9_mfpbl")
+loot_sprite = ExtResource("10_3syvv")
+metadata/_custom_type_script = "uid://c4xh8anp7uons"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br2hk"]
 bg_color = Color(0.184314, 0.439216, 0.435294, 1)
 corner_radius_top_left = 12
@@ -100,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_whl1y")
 script = ExtResource("1_m88xd")
-items_in_pack = Array[ExtResource("2_euc2v")]([SubResource("Resource_2xi03"), SubResource("Resource_6rjri"), ExtResource("8_7l28p")])
+items_in_pack = Array[ExtResource("2_euc2v")]([SubResource("Resource_2xi03"), SubResource("Resource_6rjri"), ExtResource("8_7l28p"), SubResource("Resource_ntn0t")])
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1804732891]
 layout_mode = 1
@@ -146,6 +190,8 @@ text = "返回主界面"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(288, 186)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.4
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
@@ -171,7 +217,7 @@ columns = 4
 [node name="VBoxContainer2" type="MarginContainer" parent="MarginContainer/Control/HBoxContainer" unique_id=702008130]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.55
+size_flags_stretch_ratio = 1.77
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/Control/HBoxContainer/VBoxContainer2" unique_id=1990975772]
 layout_mode = 2
