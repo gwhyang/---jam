@@ -156,7 +156,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="TestClearTimer" type="Timer" parent="Spawner" unique_id=1820448058]
-wait_time = 0.7
+wait_time = 0.2
 ignore_time_scale = true
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1962761222]
