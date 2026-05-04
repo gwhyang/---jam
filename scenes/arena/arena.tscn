@@ -103,6 +103,16 @@ metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
 [sub_resource type="Resource" id="Resource_0qb3g"]
 script = ExtResource("16_l0cts")
+item_vaild_slot = Dictionary[int, bool]({
+0: true,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
 effects = Array[ExtResource("12_wqbss")]([SubResource("Resource_6epk0")])
 item_name = "explode head"
 item_icon = ExtResource("33_pc1hj")
