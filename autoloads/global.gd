@@ -76,7 +76,7 @@ enum UpgradeTier{
 	LEGENDARY
 }
 enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
-enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONSUMMONTIMEOUT,ONPLAYERDIE,ONPUNITDIE,APPLYSUMMON,SUMMONSPAWN}
+enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONSUMMONTIMEOUT,ONPLAYERDIE,ONPUNITDIE,APPLYSUMMON,SUMMONSPAWN,ONHIT,ONENEMYHIT}
 enum BuffType{INVISIBLE}
 
 var coins: int = 500
@@ -203,10 +203,13 @@ func select_items_for_offer(item_pool: Array, current_wave: int, config: Diction
 
 func callback_items(allowed_triggers:Array[Global.ItemCallBack],effect_context:EffectContext):
 	# Trigger all ONEQUIP effects declared on this bone item.
-	for slot in equiped_bones:
-		if not equiped_bones[slot]:
+	for bone in equiped_bones.values():
+		if not bone:
 			continue
-		for packed_effect:PackedItemEffect in equiped_bones[slot].effects:
+		print(bone.item_name)
+		print(allowed_triggers)
+		for packed_effect:PackedItemEffect in bone.effects:
 			for trigger in allowed_triggers:
+				print(packed_effect.trigger)
 				if packed_effect.trigger == trigger:
 					packed_effect.effect(effect_context)

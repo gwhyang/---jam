@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jwlbwk7kciaj"]
+
+[ext_resource type="Script" uid="uid://n8vklnh6ulvi" path="res://scenes/effects/explosion/death_explosion.gd" id="1_48djp"]
+
+[node name="DeathExplosion" type="Area2D" unique_id=240181730]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_48djp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=261725120]

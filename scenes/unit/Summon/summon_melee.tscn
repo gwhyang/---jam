@@ -9,6 +9,7 @@
 [sub_resource type="Resource" id="Resource_chn41"]
 script = ExtResource("2_lpbs1")
 health = 3
+damage = 2.0
 speed = 400.0
 weight = 5
 metadata/_custom_type_script = "uid://5tkkf27wtphe"
@@ -50,9 +51,9 @@ debug_color = Color(0.886296, 0.184609, 0.678985, 0.42)
 [node name="SummonMoveBehavoir" parent="." index="8" unique_id=1946181641 node_paths=PackedStringArray("target_getter")]
 script = ExtResource("2_q6qpw")
 target_getter = NodePath("../TargetGetter")
-cool_down = 0.3
-chase_duration = 0.2
-chase_length = 130.0
+cool_down = 0.5
+chase_duration = 0.3
+chase_length = 230.0
 fast = 1.7
 normal = 1.0
 near_dist = 150.0

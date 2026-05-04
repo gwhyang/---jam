@@ -21,16 +21,22 @@ func take_damage(value: float) -> void:
 	current_health = max(current_health, 0)
 	
 	on_unit_hit.emit()
+	
 	on_health_changed.emit(current_health, max_health)
 	
 	if current_health <= 0:
 		current_health = 0
+		if owner is Unit and owner.buff_manager:
+			owner.buff_manager.on_before_die()
 		var die_context:= EffectContext.new()
 		die_context.trigger_type = Global.ItemCallBack.ONPUNITDIE
 		die_context.unit = owner
 		Global.callback_items([Global.ItemCallBack.ONPUNITDIE],die_context)
 		if current_health > 0:
 			return
+		if owner is Unit and owner.buff_manager:
+			owner.buff_manager.on_death()
+			print(2)
 		on_unit_died.emit()
 		die()
 		

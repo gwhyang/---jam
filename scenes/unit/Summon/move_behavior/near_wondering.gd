@@ -28,13 +28,13 @@ func move(delta:float):
 			if change_dir_time <= 0:
 				change_dir_time = randf_range(wonder_time_range.x,wonder_time_range.y)
 				current_dir = Vector2.LEFT.rotated(randf()*TAU)
-			velcity = current_dir * normal * parent.stats.speed
+			velcity = current_dir * normal * parent.get_move_speed()
 		MoveState.CHASE:
 			# Close enough -> switch back to local wandering.
 			if parent.global_position.distance_to(player_posi) <=near_dist:
 				current_state = MoveState.WONDER
 				return
 			current_dir = parent.global_position.direction_to(player_posi)
-			velcity = current_dir * fast * parent.stats.speed
+			velcity = current_dir * fast * parent.get_move_speed()
 	
 	parent.position += velcity*delta

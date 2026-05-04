@@ -14,6 +14,9 @@
 - 现有属性加减效果（可复用思路）：
   - `resources/item_effects/effects/add_status.gd`
   - `resources/item_effects/effects/remove_staus.gd`
+- 速度乘数入口（减速/加速应改这里）：
+  - `Unit.speed_multiplier`（默认 `1.0`）
+  - `Unit.get_move_speed()`（统一返回 `stats.speed * speed_multiplier`）
 
 ## 3. 设计总览
 
@@ -122,6 +125,35 @@
 - 与玩家冲刺无敌（`collision disabled`）机制并存时，避免互相覆盖状态。
 - 建议由 BuffManager 维护“引用计数式禁用”以支持多个来源共同禁用。
 
+### 6.2.1 死亡时爆炸（On Death Explosion）详细规范
+目标：单位死亡时在原地生成爆炸效果，并对范围内目标造成伤害。
+
+触发时机：
+- 固定在 `on_death(ctx)`，且在 `queue_free` 前执行。
+
+建议配置字段（放在爆炸类 Buff 或专用爆炸 Buff 中）：
+- `explosion_scene: PackedScene`：爆炸场景引用（例如未来的 `scenes/effects/explosion.tscn`）
+- `explosion_radius: float`
+- `explosion_damage: float`
+- `explosion_knockback: float = 0.0`
+- `affect_self: bool = false`：是否会炸到自己（通常死亡时无意义，默认 false）
+- `friendly_fire: bool = false`：是否伤害同阵营单位
+- `damage_scale_per_stack: float = 0.0`：每层额外伤害系数（可选）
+
+伤害归属建议：
+- 爆炸伤害 `source` 指向死亡单位本身，便于后续统计击杀来源/特效来源。
+
+层数联动建议：
+- 若该 Buff 可叠层：`final_damage = explosion_damage * (1.0 + damage_scale_per_stack * (stacks - 1))`
+- 不叠层时保持单次固定值即可。
+
+与“隐身”关系：
+- 可以做成“隐身 Buff 的死亡子效果”，也可以拆成独立 Buff（如 `death_explosion`）再由隐身附带添加。
+- 推荐拆分：机制更干净，后续其他单位也可复用死亡爆炸而不必绑定隐身。
+
+当前状态：
+- 你项目里爆炸 scene 还没写，先在 Buff 文档层定义接口与参数，待场景完成后直接接入。
+
 ### 6.3 改动属性（Stat Modifier）
 目标：添加时增加对应属性（可正可负），移除时还原。
 
@@ -137,6 +169,28 @@
 关键约束：
 - 必须按“本 Buff 自己贡献了多少”来回滚，不能直接依赖当前面板值。
 - 涉及 `health` 上限变化时，要同步处理 `current_health`（至少 clamp）。
+
+### 6.4 减速（Slow）
+目标：在持续时间内降低单位移速，公式为 `1 - slow_per_stack * n`，`n` 为层数。
+
+实现文件：
+- `resources/buffs/buff_slow.gd`
+- `resources/buffs/defs/buff_slow.tres`
+
+导出属性：
+- `slow_per_stack: float`：每层减速比例，默认 `0.02`（每层 -2%）
+- `max_stacks: int`：最大层数（继承自 `BuffBase`）
+- `min_speed_multiplier: float`：速度乘数下限，防止速度变为 0 或负数
+- `duration: float`：持续时间（继承自 `BuffBase`）
+
+生效规则：
+- `on_apply/on_stack_changed` 时重算速度乘数：
+  - `new_multiplier = max(min_speed_multiplier, 1.0 - slow_per_stack * stacks)`
+- `on_remove` 时恢复该 Buff 对乘数的影响。
+
+重要约束：
+- Slow Buff 只改 `Unit.speed_multiplier`，不直接改 `Unit.stats.speed`。
+- 项目内移动逻辑统一通过 `get_move_speed()` 读取速度，这样玩家、敌人、召唤物都会吃到减速。
 
 ## 7. 用到的场景与文件建议
 
@@ -193,4 +247,5 @@
 2. 把 `Unit` 受击与 `HealthComponent` 死亡节点接上回调
 3. 先实现 `Stat Modifier`（最容易验证）
 4. 再实现 `Invisible`
-5. 最后实现 `Split On Death` 与爆炸接口
+5. 实现独立 `Death Explosion`（可先不做美术，只验证伤害与范围）
+6. 最后实现 `Split On Death`

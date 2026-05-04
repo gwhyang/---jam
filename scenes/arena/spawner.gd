@@ -123,6 +123,11 @@ func spawn_summon(summon_scene:PackedScene,summon_posi:Vector2)->void:
 		
 	var summon_instance := spawn(summon_scene,summon_posi) as Summon
 	spawned_summons.append(summon_instance)
+	var ctx := EffectContext.new()
+	ctx.unit = summon_instance
+	ctx.global_posi = summon_instance.global_position
+	ctx.trigger_type = Global.ItemCallBack.SUMMONSPAWN
+	Global.callback_items([ Global.ItemCallBack.SUMMONSPAWN],ctx)
 
 func get_random_summon_position() -> Vector2:
 	if not Global.player:
@@ -182,6 +187,10 @@ func spawn(spawned:PackedScene,global_posi:Vector2 = Vector2(0,0))->Node2D:
 	get_parent().add_child(spawned_instance)
 	
 	return spawned_instance
+
+func add_node(node:Node2D,global_posi:Vector2):
+	node.global_position = global_posi
+	get_parent().add_child(node)
 
 func _on_spawn_timer_timeout() -> void:
 	if not current_wave_data or wave_timer.is_stopped():

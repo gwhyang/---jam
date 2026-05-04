@@ -3,6 +3,7 @@ extends NearWonderMove
 
 @export var target_getter:TargetGetter
 @onready var hitbox_component: HitboxComponent = $"../HitboxComponent"
+@onready var hurtbox_component: HurtboxComponent = $"../HurtboxComponent"
 @export var cool_down:float = 0.3
 @export var chase_duration:float = 0.2
 @export var chase_length:float = 130
@@ -28,7 +29,7 @@ func move(delta:float):
 	
 	cool_down -= delta
 	if cool_down > 0:
-		velcity = current_dir*normal*parent.stats.speed
+		velcity = current_dir * normal * parent.get_move_speed()
 		parent.position += velcity*delta
 		return
 		
@@ -38,6 +39,7 @@ func move(delta:float):
 	var dmg := stats.damage+player_ststs.extra_summon_damage
 	
 	hitbox_component.setup(dmg,false,1,parent)#TODO
+	hurtbox_component.disable()
 	chase_tween  = create_tween()
 	chase_tween.tween_property(parent,"global_position",global_position+current_dir*chase_length,chase_duration)
 	chase_tween.finished.connect(reset_cooldown)
@@ -47,3 +49,4 @@ func move(delta:float):
 func reset_cooldown():
 	cool_down_timer = cool_down
 	hitbox_component.disable()
+	hurtbox_component.enable()

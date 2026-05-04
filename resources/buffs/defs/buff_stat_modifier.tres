@@ -1,0 +1,13 @@
+﻿[gd_resource type="Resource" script_class="BuffStatModifier" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/buffs/buff_stat_modifier.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+buff_id = &"stat_modifier"
+display_name = "Stat Modifier"
+max_stacks = 99
+duration = 0.0
+refresh_mode = 0
+stat_name = &"damage"
+value_per_stack = 1.0

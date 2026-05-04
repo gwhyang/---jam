@@ -2,6 +2,9 @@ extends Arena
 @onready var equip_panel: EquipPanel = %EquipPanel
 @onready var end_panel: EndPanel = $GameUI/EndPanel
 
+func _ready() -> void:
+	super()
+	Game.add_node.connect(spawner.add_node)
 
 func _on_spawner_on_wave_completed() -> void:
 	if not Global.player: return

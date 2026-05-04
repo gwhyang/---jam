@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://cqtt0x585n88s"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_ixf3l"]
+[ext_resource type="Script" uid="uid://cqnpgra6ndvvw" path="res://resources/item_effects/effects/add_buff.gd" id="2_1iqfj"]
+[ext_resource type="Resource" uid="uid://c8mvomyb72xek" path="res://resources/buffs/defs/buff_explode_on_death.tres" id="2_cxyvl"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_ry67w"]
+[ext_resource type="Texture2D" uid="uid://3c2kwaw7powj" path="res://assets/sprites/Projectiles/Projectile_3.png" id="3_cxyvl"]
+
+[sub_resource type="Resource" id="Resource_c2p3p"]
+script = ExtResource("2_1iqfj")
+buff = ExtResource("2_cxyvl")
+metadata/_custom_type_script = "uid://cqnpgra6ndvvw"
+
+[sub_resource type="Resource" id="Resource_jaw2k"]
+script = ExtResource("1_ixf3l")
+trigger = 10
+_effect = SubResource("Resource_c2p3p")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_ry67w")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: true
+})
+effects = Array[ExtResource("1_ixf3l")]([SubResource("Resource_jaw2k")])
+item_icon = ExtResource("3_cxyvl")
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

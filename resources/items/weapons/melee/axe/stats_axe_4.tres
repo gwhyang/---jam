@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_ckmnv")
+damage = 2.0
 accuracy = 1.0
 cooldown = 0.7
 crit_chance = 0.2

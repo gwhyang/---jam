@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	move_dir = Input.get_vector("move_left", "move_right","move_up", "move_down")
 	
-	var current_velocity := move_dir * stats.speed
+	var current_velocity := move_dir * get_move_speed()
 	if is_dashing:
 		current_velocity *= dash_speed_multi
 	

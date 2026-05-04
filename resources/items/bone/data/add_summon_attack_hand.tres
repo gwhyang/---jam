@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://dsyk3kwsuq2wc"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_wm1kf"]
+[ext_resource type="Script" uid="uid://c0jqisu7yo28f" path="res://resources/buffs/buff_stat_modifier.gd" id="2_3xadi"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_nkiuv"]
+[ext_resource type="Script" uid="uid://cqnpgra6ndvvw" path="res://resources/item_effects/effects/add_buff.gd" id="3_56v2m"]
+[ext_resource type="Texture2D" uid="uid://dkji1b4um54aj" path="res://assets/sprites/Projectiles/Projectile_enemy.png" id="4_rva06"]
+
+[sub_resource type="Resource" id="Resource_3o2mx"]
+script = ExtResource("2_3xadi")
+stat_name = &"damage"
+value_per_stack = 10.0
+buff_id = &"add damage"
+display_name = "damage"
+duration = 10.0
+metadata/_custom_type_script = "uid://c0jqisu7yo28f"
+
+[sub_resource type="Resource" id="Resource_fgsy5"]
+script = ExtResource("3_56v2m")
+buff = SubResource("Resource_3o2mx")
+
+[sub_resource type="Resource" id="Resource_a70f5"]
+script = ExtResource("1_wm1kf")
+trigger = 8
+_effect = SubResource("Resource_fgsy5")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_nkiuv")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: true,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("1_wm1kf")]([SubResource("Resource_a70f5")])
+item_icon = ExtResource("4_rva06")
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

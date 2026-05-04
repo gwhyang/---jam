@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	if not can_move_towards_target():
 		return
 	
-	position += (get_move_direction() + knockback_dir * knockback_power) * stats.speed * delta
+	position += (get_move_direction() + knockback_dir * knockback_power) * get_move_speed() * delta
 	update_rotation()
 	
 
@@ -79,6 +79,13 @@ func _on_knockback_timer_timeout() -> void:
 	reset_knockback()
 	
 func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
+		
+	var hit_context:= EffectContext.new()
+	hit_context.trigger_type = Global.ItemCallBack.ONENEMYHIT
+	hit_context.unit = self
+	hit_context.dmage = hitbox.damage
+	Global.callback_items([hit_context.trigger_type],hit_context)
+	
 	super._on_hurtbox_component_on_damaged(hitbox)
 	
 	if hitbox.knockback_power > 0:

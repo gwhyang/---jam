@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuffExplodeOnDeath" format=3 uid="uid://c8mvomyb72xek"]
+
+[ext_resource type="Script" uid="uid://ddjonn7gqhkdf" path="res://resources/buffs/buff_bomb_on_death.gd" id="1_tgobu"]
+
+[resource]
+script = ExtResource("1_tgobu")
+damage_scale_per_stack = 1.0
+visual_duration = 0.5
+buff_id = &"explode on death"
+display_name = "aaa"
+max_stacks = 2
+duration = -1.0
+metadata/_custom_type_script = "uid://ddjonn7gqhkdf"

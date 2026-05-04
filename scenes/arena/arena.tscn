@@ -19,12 +19,22 @@
 [ext_resource type="PackedScene" uid="uid://b400yckp6hia3" path="res://scenes/unit/Summon/summon_melee.tscn" id="14_gy0qm"]
 [ext_resource type="Texture2D" uid="uid://byg3400qlcem6" path="res://assets/sprites/Upgrades/8.png" id="15_dh340"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="16_l0cts"]
+[ext_resource type="Resource" uid="uid://dsyk3kwsuq2wc" path="res://resources/items/bone/data/add_summon_attack_hand.tres" id="18_5ilg6"]
+[ext_resource type="Resource" uid="uid://c8vqkg348uhtx" path="res://resources/items/bone/data/slow_hand.tres" id="19_bxbl0"]
+[ext_resource type="Resource" uid="uid://cqtt0x585n88s" path="res://resources/items/bone/data/bomb_leg.tres" id="20_c13hg"]
 [ext_resource type="Script" uid="uid://7e4rrmweiw5r" path="res://resources/items/weapons/item_weapon.gd" id="20_l0cts"]
 [ext_resource type="Texture2D" uid="uid://dxl550mv1d5l6" path="res://assets/sprites/Upgrades/3.png" id="21_ybinm"]
 [ext_resource type="PackedScene" uid="uid://dg1h8yasmsxgn" path="res://scenes/weapons/hand/hand_wepon.tscn" id="22_5ilg6"]
 [ext_resource type="Script" uid="uid://ce7kbvo7gs6or" path="res://resources/items/weapons/weapon_stats.gd" id="23_bxbl0"]
+[ext_resource type="Script" uid="uid://5tkkf27wtphe" path="res://resources/units/unit_stats.gd" id="23_vspv4"]
 [ext_resource type="Resource" uid="uid://x0okk6a5i7bx" path="res://resources/items/weapons/melee/axe/item_axe_4.tres" id="24_c13hg"]
+[ext_resource type="Resource" uid="uid://beje5nf384d0m" path="res://resources/units/players/stats_player_brawler.tres" id="24_io46r"]
+[ext_resource type="Resource" uid="uid://btqrh024mi515" path="res://resources/units/players/stats_player_crazy.tres" id="25_f7e6h"]
 [ext_resource type="PackedScene" uid="uid://cdxc16ad22r61" path="res://scenes/ui/end_panel/end_panel.tscn" id="25_ybinm"]
+[ext_resource type="Resource" uid="uid://c8mvomyb72xek" path="res://resources/buffs/defs/buff_explode_on_death.tres" id="31_lg6rl"]
+[ext_resource type="Resource" uid="uid://bvca487tni8ag" path="res://resources/items/weapons/melee/punch/item_punch_1.tres" id="31_qd24e"]
+[ext_resource type="Script" uid="uid://cqnpgra6ndvvw" path="res://resources/item_effects/effects/add_buff.gd" id="32_qd24e"]
+[ext_resource type="Texture2D" uid="uid://cxcwrnvk6mcyt" path="res://icon.svg" id="33_pc1hj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
@@ -63,6 +73,7 @@ metadata/_custom_type_script = "uid://c4xh8anp7uons"
 
 [sub_resource type="Resource" id="Resource_lur41"]
 script = ExtResource("23_bxbl0")
+damage = 5.0
 accuracy = 1.0
 cooldown = 0.5
 crit_chance = 1.0
@@ -79,6 +90,24 @@ upgrade_to = ExtResource("24_c13hg")
 item_icon = ExtResource("21_ybinm")
 metadata/_custom_type_script = "uid://7e4rrmweiw5r"
 
+[sub_resource type="Resource" id="Resource_esuet"]
+script = ExtResource("32_qd24e")
+buff = ExtResource("31_lg6rl")
+metadata/_custom_type_script = "uid://cqnpgra6ndvvw"
+
+[sub_resource type="Resource" id="Resource_6epk0"]
+script = ExtResource("12_wqbss")
+trigger = 10
+_effect = SubResource("Resource_esuet")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_0qb3g"]
+script = ExtResource("16_l0cts")
+effects = Array[ExtResource("12_wqbss")]([SubResource("Resource_6epk0")])
+item_name = "explode head"
+item_icon = ExtResource("33_pc1hj")
+metadata/_custom_type_script = "uid://c4xh8anp7uons"
+
 [node name="Arena" type="Node2D" unique_id=1143503340]
 script = ExtResource("1_s83md")
 normal_color = Color(1, 1, 1, 1)
@@ -88,6 +117,7 @@ hp_color = Color(0, 0.627451, 0.482353, 1)
 metadata/_custom_type_script = "uid://dvlyuwfk08kre"
 
 [node name="BlackBG" type="Sprite2D" parent="." unique_id=637674829]
+position = Vector2(10, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_5tue2")
 
@@ -160,14 +190,16 @@ visible = false
 unique_name_in_owner = true
 visible = false
 equip_panel = NodePath("../EquipPanel")
-shop_items = Array[ExtResource("12_w4nra")]([SubResource("Resource_ybinm"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8"), ExtResource("13_t3vx8")])
+shop_items = Array[ExtResource("12_w4nra")]([SubResource("Resource_ybinm"), ExtResource("13_t3vx8"), ExtResource("18_5ilg6"), ExtResource("19_bxbl0"), ExtResource("20_c13hg")])
 
 [node name="EquipPanel" parent="GameUI" unique_id=962236813 instance=ExtResource("11_s83md")]
 unique_name_in_owner = true
 visible = false
 
 [node name="SelectionPanel" parent="GameUI" unique_id=1327096259 node_paths=PackedStringArray("equip_panel") instance=ExtResource("12_vmsrg")]
-start_weapons = Array[ExtResource("20_l0cts")]([SubResource("Resource_rjdwg"), ExtResource("24_c13hg")])
+players = Array[ExtResource("23_vspv4")]([ExtResource("24_io46r"), ExtResource("25_f7e6h")])
+start_weapons = Array[ExtResource("20_l0cts")]([SubResource("Resource_rjdwg"), ExtResource("31_qd24e")])
+start_item = Array[ExtResource("16_l0cts")]([ExtResource("13_t3vx8"), SubResource("Resource_0qb3g")])
 equip_panel = NodePath("../EquipPanel")
 
 [node name="EndPanel" parent="GameUI" unique_id=213429442 instance=ExtResource("25_ybinm")]

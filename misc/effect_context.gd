@@ -14,6 +14,7 @@ var remove_stats: String
 # Runtime callback stage that invokes this effect.
 var trigger_type:Global.ItemCallBack = -1
 var summon_amount:int
+var dmage:float
 
 ## 判断自己的变量能否涵盖效果需要的
 #func included(effect_required_flags:int)->bool:
