@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://b4c4uusrayp5l"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_cf7f5"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_0yx4h"]
+
+[resource]
+script = ExtResource("2_0yx4h")
+metadata/_custom_type_script = "uid://c4xh8anp7uons"
