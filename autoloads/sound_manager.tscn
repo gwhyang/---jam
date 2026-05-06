@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://vmhc3lmq45xp" path="res://assets/audio/Menu1（菜单.mp3" id="4_jlkm7"]
 
 [node name="SoundManager" type="Node" unique_id=706504156]
+process_mode = 3
 script = ExtResource("1_vwtpm")
 
 [node name="SFX" type="Node" parent="." unique_id=1588597225]
@@ -14,9 +15,12 @@ script = ExtResource("1_vwtpm")
 
 [node name="battle" type="AudioStreamPlayer" parent="Music" unique_id=1986691335]
 stream = ExtResource("2_x8bxb")
+bus = &"Bgm"
 
 [node name="end" type="AudioStreamPlayer" parent="Music" unique_id=87736963]
 stream = ExtResource("3_2flvm")
+bus = &"Bgm"
 
 [node name="menu" type="AudioStreamPlayer" parent="Music" unique_id=695137416]
 stream = ExtResource("4_jlkm7")
+bus = &"Bgm"

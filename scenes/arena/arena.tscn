@@ -35,6 +35,7 @@
 [ext_resource type="Resource" uid="uid://bvca487tni8ag" path="res://resources/items/weapons/melee/punch/item_punch_1.tres" id="31_qd24e"]
 [ext_resource type="Script" uid="uid://cqnpgra6ndvvw" path="res://resources/item_effects/effects/add_buff.gd" id="32_qd24e"]
 [ext_resource type="Texture2D" uid="uid://cxcwrnvk6mcyt" path="res://icon.svg" id="33_pc1hj"]
+[ext_resource type="PackedScene" uid="uid://b5tujei6p8fpg" path="res://scenes/ui/SettingPanel/setting_panel.tscn" id="36_pc1hj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
@@ -135,7 +136,7 @@ texture = ExtResource("1_5tue2")
 scale = Vector2(3, 3)
 texture = ExtResource("2_aj7ud")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=353694121]
+[node name="Camera" type="Camera2D" parent="." unique_id=353694121]
 position = Vector2(1, 0)
 script = ExtResource("4_aj7ud")
 
@@ -213,6 +214,9 @@ start_item = Array[ExtResource("16_l0cts")]([ExtResource("13_t3vx8"), SubResourc
 equip_panel = NodePath("../EquipPanel")
 
 [node name="EndPanel" parent="GameUI" unique_id=213429442 instance=ExtResource("25_ybinm")]
+visible = false
+
+[node name="SettingPanel" parent="GameUI" unique_id=915720583 instance=ExtResource("36_pc1hj")]
 visible = false
 
 [node name="Node2D" type="Node2D" parent="." unique_id=759593665]

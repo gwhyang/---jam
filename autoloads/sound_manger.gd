@@ -1,4 +1,7 @@
 extends Node
+@export var fade_out_time:float = 5
+@export var fade_in_time:float = 4
+@export var bgm_wait_timer:float = 2
 
 @onready var sfx:Node = $SFX
 @onready var music:Node = $Music
@@ -10,6 +13,8 @@ var music_play_list:Array[AudioStreamPlayer]
 
 var is_background_playing:bool
 var current_player:AudioStreamPlayer
+var fade_out_tween:Tween
+var fade_in_tween:Tween
 
 signal music_finished
 
@@ -26,6 +31,9 @@ signal music_finished
 	#is_background_playing = true
 	#on_music_finished()
 
+func _process(delta: float) -> void:
+	print(current_player.volume_linear)
+	print(current_player.playing)
 	
 func sfx_play(SFXname:String) -> void :
 	var sound_name := SFXname.to_lower()
@@ -35,10 +43,23 @@ func sfx_play(SFXname:String) -> void :
 
 func music_play(music_name:String) -> void:
 	print(music_name)
+	if fade_out_tween and fade_out_tween.is_running():
+		fade_out_tween.kill()
 	if current_player:
-		current_player.stop()
+		var post_player := current_player
+		fade_out_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		fade_out_tween.tween_property(post_player,"volume_linear",0,fade_out_time)
+		fade_out_tween.finished.connect(func():
+			post_player.stop()
+			post_player.volume_linear = 1
+			)
+	await get_tree().create_timer(bgm_wait_timer)
 	current_player = music.get_node(music_name) as AudioStreamPlayer
-	if current_player: current_player.play()
+	if current_player: 
+		current_player.volume_linear = 0
+		current_player.play()
+		fade_in_tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+		fade_in_tween.tween_property(current_player,"volume_linear",1,fade_in_time)
 	else: printerr(music_name," is not included in SFX")
 
 func play_music_random(index_list:Array[int]) -> void:
