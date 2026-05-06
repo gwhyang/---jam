@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://jhlybi3npe5f"]
+
+[ext_resource type="Script" uid="uid://dc5ebmkivkcnl" path="res://autoloads/sound_manger.gd" id="1_vwtpm"]
+[ext_resource type="AudioStream" uid="uid://c1so58yjhi86p" path="res://assets/audio/Battle2局内.mp3" id="2_x8bxb"]
+[ext_resource type="AudioStream" uid="uid://byl0m4431ubjk" path="res://assets/audio/DTBRT1结算.mp3" id="3_2flvm"]
+[ext_resource type="AudioStream" uid="uid://vmhc3lmq45xp" path="res://assets/audio/Menu1（菜单.mp3" id="4_jlkm7"]
+
+[node name="SoundManager" type="Node" unique_id=706504156]
+script = ExtResource("1_vwtpm")
+
+[node name="SFX" type="Node" parent="." unique_id=1588597225]
+
+[node name="Music" type="Node" parent="." unique_id=877576683]
+
+[node name="battle" type="AudioStreamPlayer" parent="Music" unique_id=1986691335]
+stream = ExtResource("2_x8bxb")
+
+[node name="end" type="AudioStreamPlayer" parent="Music" unique_id=87736963]
+stream = ExtResource("3_2flvm")
+
+[node name="menu" type="AudioStreamPlayer" parent="Music" unique_id=695137416]
+stream = ExtResource("4_jlkm7")

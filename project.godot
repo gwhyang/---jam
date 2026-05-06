@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Global="*res://autoloads/global.gd"
 Game="*uid://dtc8dvd4oqk3m"
+SoundManager="*uid://jhlybi3npe5f"
 
 [display]
 

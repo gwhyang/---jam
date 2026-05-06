@@ -87,6 +87,5 @@ func _on_continue_button_pressed() -> void:
 		and  Global.main_weapon_selected \
 		and Global.main_weapon_selected):
 		return
-	
 	on_selection_completed.emit()
 	hide()
