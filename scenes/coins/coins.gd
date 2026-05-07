@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	
 	if global_position.distance_to(target_pos) < collect_distance:
 		add_coins()
+		SoundManager.sfx_play("pick coin")
 	
 
 func add_coins() -> void:

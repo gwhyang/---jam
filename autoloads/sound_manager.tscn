@@ -1,15 +1,75 @@
 [gd_scene format=3 uid="uid://jhlybi3npe5f"]
 
 [ext_resource type="Script" uid="uid://dc5ebmkivkcnl" path="res://autoloads/sound_manger.gd" id="1_vwtpm"]
+[ext_resource type="AudioStream" uid="uid://bli6msm8gr0a" path="res://assets/sfx/chop.ogg" id="2_2flvm"]
+[ext_resource type="AudioStream" uid="uid://dmbp7x60bhqkm" path="res://assets/sfx/cards-pack-open-1.ogg" id="2_pnoy7"]
 [ext_resource type="AudioStream" uid="uid://c1so58yjhi86p" path="res://assets/audio/Battle2局内.mp3" id="2_x8bxb"]
 [ext_resource type="AudioStream" uid="uid://byl0m4431ubjk" path="res://assets/audio/DTBRT1结算.mp3" id="3_2flvm"]
+[ext_resource type="AudioStream" uid="uid://bx5xlgfps43dy" path="res://assets/sfx/cards-pack-open-2.ogg" id="3_qr0qc"]
 [ext_resource type="AudioStream" uid="uid://vmhc3lmq45xp" path="res://assets/audio/Menu1（菜单.mp3" id="4_jlkm7"]
+[ext_resource type="AudioStream" uid="uid://cf4qb6geptj32" path="res://assets/sfx/cards-pack-take-out-1.ogg" id="4_loy5o"]
+[ext_resource type="AudioStream" uid="uid://p1chk14elgd2" path="res://assets/sfx/cards-pack-take-out-2.ogg" id="5_3jrge"]
+[ext_resource type="AudioStream" uid="uid://dpsqsnnc8svcf" path="res://assets/sfx/card-slide-1.ogg" id="6_4diex"]
+[ext_resource type="AudioStream" uid="uid://p0hardxv2kqh" path="res://assets/sfx/Modern1.ogg" id="7_s2b1y"]
+[ext_resource type="AudioStream" uid="uid://damt7mkfjmuvg" path="res://assets/sfx/card-slide-2.ogg" id="7_s7r8s"]
+[ext_resource type="AudioStream" uid="uid://dfylpcakbxo0f" path="res://assets/sfx/card-slide-3.ogg" id="8_m0tvi"]
+[ext_resource type="AudioStream" uid="uid://bk3vp1wnmu5ij" path="res://assets/sfx/card-slide-4.ogg" id="9_ruipn"]
+[ext_resource type="AudioStream" uid="uid://bsqw0lxm10ul4" path="res://assets/sfx/card-slide-5.ogg" id="10_e5ltx"]
+[ext_resource type="AudioStream" uid="uid://bdeag7vpgrvux" path="res://assets/sfx/card-slide-6.ogg" id="11_o2pon"]
+[ext_resource type="AudioStream" uid="uid://cqi1ka8unwphq" path="res://assets/sfx/card-slide-7.ogg" id="12_mrq2k"]
+[ext_resource type="AudioStream" uid="uid://b1ottf7ywdavx" path="res://assets/sfx/card-slide-8.ogg" id="13_k5fhg"]
 
 [node name="SoundManager" type="Node" unique_id=706504156]
 process_mode = 3
 script = ExtResource("1_vwtpm")
 
 [node name="SFX" type="Node" parent="." unique_id=1588597225]
+
+[node name="equip1" type="AudioStreamPlayer" parent="SFX" unique_id=1405637344]
+stream = ExtResource("2_pnoy7")
+
+[node name="equip2" type="AudioStreamPlayer" parent="SFX" unique_id=1925330853]
+stream = ExtResource("3_qr0qc")
+
+[node name="unload1" type="AudioStreamPlayer" parent="SFX" unique_id=1600652233]
+stream = ExtResource("4_loy5o")
+
+[node name="unload2" type="AudioStreamPlayer" parent="SFX" unique_id=834739632]
+stream = ExtResource("5_3jrge")
+
+[node name="card1" type="AudioStreamPlayer" parent="SFX" unique_id=222471286]
+stream = ExtResource("6_4diex")
+
+[node name="card2" type="AudioStreamPlayer" parent="SFX" unique_id=1439558537]
+stream = ExtResource("7_s7r8s")
+
+[node name="card3" type="AudioStreamPlayer" parent="SFX" unique_id=1349623810]
+stream = ExtResource("8_m0tvi")
+
+[node name="card4" type="AudioStreamPlayer" parent="SFX" unique_id=1549955035]
+stream = ExtResource("9_ruipn")
+
+[node name="card5" type="AudioStreamPlayer" parent="SFX" unique_id=953370066]
+stream = ExtResource("10_e5ltx")
+
+[node name="card6" type="AudioStreamPlayer" parent="SFX" unique_id=2139168376]
+stream = ExtResource("11_o2pon")
+
+[node name="card7" type="AudioStreamPlayer" parent="SFX" unique_id=1410486691]
+stream = ExtResource("12_mrq2k")
+
+[node name="card8" type="AudioStreamPlayer" parent="SFX" unique_id=1064561422]
+stream = ExtResource("13_k5fhg")
+
+[node name="hit" type="AudioStreamPlayer" parent="SFX" unique_id=775512981]
+stream = ExtResource("2_2flvm")
+pitch_scale = 0.8
+bus = &"Sfx"
+
+[node name="pick coin" type="AudioStreamPlayer" parent="SFX" unique_id=691086386]
+stream = ExtResource("7_s2b1y")
+volume_db = 10.0
+bus = &"Sfx"
 
 [node name="Music" type="Node" parent="." unique_id=877576683]
 

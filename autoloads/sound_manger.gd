@@ -18,12 +18,12 @@ var fade_in_tween:Tween
 
 signal music_finished
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#for child in sfx.get_children():
-		#if child is AudioStreamPlayer:
-			#sfx_dict[child.name.to_lower()] = child
-	#
+ #Called when the node enters the scene tree for the first time.
+func _ready():
+	for child in sfx.get_children():
+		if child is AudioStreamPlayer:
+			sfx_dict[child.name.to_lower()] = child
+	
 	#for child in music.get_children():
 		#if child is AudioStreamPlayer:
 			#child.finished.connect(on_music_finished)
