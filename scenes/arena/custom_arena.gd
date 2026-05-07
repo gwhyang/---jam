@@ -2,11 +2,13 @@ extends Arena
 @export var wave_count:int = 10
 @onready var equip_panel: EquipPanel = %EquipPanel
 @onready var end_panel: EndPanel = $GameUI/EndPanel
+@onready var camera: Camera = $Camera
 
 func _ready() -> void:
 	super()
 	Game.add_node.connect(spawner.add_node)
 	SoundManager.music_play("menu")
+	Global.shake_camera.connect(camera.shake)
 	
 
 func _on_spawner_on_wave_completed() -> void:

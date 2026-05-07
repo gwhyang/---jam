@@ -1,5 +1,8 @@
 extends Unit
 class_name Player
+const hit_shake_strength:float = 20
+const hit_shake_duration:float = 0.14
+const freeze_duration:float = 0.15
 
 @export var dash_duration := 0.5
 @export var dash_speed_multi := 2.5
@@ -132,3 +135,10 @@ func _on_health_component_on_unit_died() -> void:
 	Game.game_lose.emit()
 	#TODO player die context
 	pass
+
+
+func _on_health_component_on_unit_hit() -> void:
+	Global.shake(hit_shake_strength,hit_shake_duration)
+	Engine.time_scale = 0.01
+	await get_tree().create_timer(freeze_duration,true,false,true)
+	Engine.time_scale = 1

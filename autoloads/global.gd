@@ -8,7 +8,7 @@ signal on_upgrade_selected
 signal on_enemy_died(enemy: Enemy)
 signal on_summon_died(summon:Summon)
 
-
+signal shake_camera(strength:float,duration:float)
 
 const FLASH_MATERIAL = preload("res://effects/flash_materia.tres")
 const FLOATING_TEXT_SCENE = preload("res://scenes/ui/floating_text/floating_text.tscn")
@@ -213,3 +213,8 @@ func callback_items(allowed_triggers:Array[Global.ItemCallBack],effect_context:E
 				print(packed_effect.trigger)
 				if packed_effect.trigger == trigger:
 					packed_effect.effect(effect_context)
+
+
+func shake(strength:float,duration:float):
+	shake_camera.emit(strength,duration)
+	Input.vibrate_handheld(int(duration*1000),strength)
