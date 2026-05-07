@@ -85,7 +85,7 @@ func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
 	hit_context.unit = self
 	hit_context.dmage = hitbox.damage
 	Global.callback_items([hit_context.trigger_type],hit_context)
-	
+	SoundManager.sfx_play(["hit"].pick_random())
 	super._on_hurtbox_component_on_damaged(hitbox)
 	
 	if hitbox.knockback_power > 0:

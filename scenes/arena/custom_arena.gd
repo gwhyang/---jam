@@ -6,6 +6,8 @@ extends Arena
 func _ready() -> void:
 	super()
 	Game.add_node.connect(spawner.add_node)
+	SoundManager.music_play("menu")
+	
 
 func _on_spawner_on_wave_completed() -> void:
 	if spawner.wave_index>= wave_count:
@@ -19,6 +21,7 @@ func _on_spawner_on_wave_completed() -> void:
 	shop_panel.load_shop(spawner.wave_index)
 	shop_panel.show()
 	clean_arena()
+	SoundManager.music_play("menu")
 
 
 func next_wave() -> void:
@@ -26,6 +29,8 @@ func next_wave() -> void:
 	equip_panel.hide()
 	shop_panel.hide()
 	start_new_wave()
+	SoundManager.music_play("battle")
+
 
 func initialize_run()->void:
 	equip_panel.clear_slots()
@@ -40,8 +45,13 @@ func _on_selection_panel_on_selection_completed() -> void:
 	equip_panel.equip_item(Global.BoneSlot.head,Global.main_skull_item_selected)
 	equip_panel.slot_card[Global.BoneSlot.head] = initial_item_card
 	super()
+	SoundManager.music_play("battle")
 
 func game_win():
 	Global.game_paused = true
 	Game.game_win.emit()
+	SoundManager.music_play("end")
 	print("win")
+
+
+	

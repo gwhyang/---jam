@@ -120,6 +120,7 @@ func _on_equip_button_button_down() -> void:
 	current_selct_card = null
 	current_slot = -1
 	equip_button.disabled = true
+	SoundManager.sfx_play(["equip1","equip2"].pick_random())
 
 func equip_item(slot:Global.BoneSlot,item:BoneItem):
 	#if Global.player:
@@ -169,6 +170,7 @@ func equip_take_off(slot:Global.BoneSlot):
 	
 	# inventory list中对应的卡片可见
 	card.show()
+	SoundManager.sfx_play(["unload1","unload2"].pick_random())
 
 func _on_take_off_button_button_down() -> void:
 	if not (current_selct_card and current_selct_card.item):

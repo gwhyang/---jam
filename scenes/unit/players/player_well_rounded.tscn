@@ -213,4 +213,5 @@ tint_over = Color(1, 1, 1, 0)
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="Visuals/Trail" method="_on_trail_timer_timeout"]
 [connection signal="on_unit_died" from="HealthComponent" to="." method="_on_health_component_on_unit_died"]
+[connection signal="on_unit_hit" from="HealthComponent" to="." method="_on_health_component_on_unit_hit"]
 [connection signal="timeout" from="HPRegenTimer" to="." method="_on_hp_regen_timer_timeout"]

@@ -13,6 +13,7 @@ func _on_item_purchased(item: ItemBase) -> void:
 	
 	card_to_equip[item_card] = equip_panel.add_equipment_item_card(item)
 	Global.game_statistic["gained bone"] += 1
+	SoundManager.sfx_play(["card1","card2","card3","card4","card5","card6","card7","card8"].pick_random())
 
 
 func _on_inventory_pressed() -> void:
