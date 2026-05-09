@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://c6wtjgsjtvr62"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_pnnn2"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_1p07i"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_hu2rh"]
+
+[sub_resource type="Resource" id="Resource_100d0"]
+script = ExtResource("2_hu2rh")
+chaged_stats = "health"
+changed_value = 150.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_3wudq"]
+script = ExtResource("1_pnnn2")
+trigger = 2
+_effect = SubResource("Resource_100d0")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_b0hih"]
+script = ExtResource("2_hu2rh")
+chaged_stats = "speed"
+changed_value = -100.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_ivedx"]
+script = ExtResource("1_pnnn2")
+trigger = 2
+_effect = SubResource("Resource_b0hih")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_1p07i")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: true,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("1_pnnn2")]([SubResource("Resource_3wudq"), SubResource("Resource_ivedx")])
+item_name = "巨型胸骨"
+decrption_override = "召唤物生命+150，移速-100"
+item_cost = 5
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

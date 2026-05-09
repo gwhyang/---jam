@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://djcgvu8h0uxou"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_4xi0h"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_2ki8j"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_knlge"]
+
+[sub_resource type="Resource" id="Resource_v11w2"]
+script = ExtResource("2_2ki8j")
+chaged_stats = "summon_speed"
+changed_value = 1.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_gijl0"]
+script = ExtResource("1_4xi0h")
+trigger = 2
+_effect = SubResource("Resource_v11w2")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_2fdlq"]
+script = ExtResource("2_2ki8j")
+chaged_stats = "damage"
+changed_value = -10.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_o4qs7"]
+script = ExtResource("1_4xi0h")
+trigger = 2
+_effect = SubResource("Resource_2fdlq")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_knlge")
+item_vaild_slot = Dictionary[int, bool]({
+0: true,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("1_4xi0h")]([SubResource("Resource_gijl0"), SubResource("Resource_o4qs7")])
+item_name = "学徒的头骨"
+decrption_override = "召唤间隔-1秒，所有召唤物攻击力-10"
+item_cost = 5
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

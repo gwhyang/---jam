@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://c3ops8vss487o"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_fcqnq"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_3xu88"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_4vydr"]
+
+[sub_resource type="Resource" id="Resource_y7vyi"]
+script = ExtResource("2_4vydr")
+chaged_stats = "speed"
+changed_value = 100.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_y45jw"]
+script = ExtResource("1_fcqnq")
+trigger = 2
+_effect = SubResource("Resource_y7vyi")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_3xu88")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: true
+})
+effects = Array[ExtResource("1_fcqnq")]([SubResource("Resource_y45jw")])
+item_name = "精灵的腿骨"
+decrption_override = "移速+100"
+item_cost = 5
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

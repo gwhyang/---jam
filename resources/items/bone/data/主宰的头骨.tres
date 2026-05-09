@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://bx0xjkpkia6vv"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_53161"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_co2ju"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_o4e7a"]
+
+[sub_resource type="Resource" id="Resource_uuchw"]
+script = ExtResource("2_co2ju")
+chaged_stats = "max_summons"
+changed_value = -2.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_cmco4"]
+script = ExtResource("1_53161")
+trigger = 2
+_effect = SubResource("Resource_uuchw")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_4onag"]
+script = ExtResource("2_co2ju")
+chaged_stats = "damage"
+changed_value = 20.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_lqufu"]
+script = ExtResource("1_53161")
+trigger = 2
+_effect = SubResource("Resource_4onag")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_cdkxb"]
+script = ExtResource("2_co2ju")
+chaged_stats = "health"
+changed_value = 200.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_0myvd"]
+script = ExtResource("1_53161")
+trigger = 2
+_effect = SubResource("Resource_cdkxb")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_o4e7a")
+item_vaild_slot = Dictionary[int, bool]({
+0: true,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: false
+})
+effects = Array[ExtResource("1_53161")]([SubResource("Resource_cmco4"), SubResource("Resource_lqufu"), SubResource("Resource_0myvd")])
+item_name = "主宰的头骨"
+decrption_override = "召唤物上限-2，所有召唤物攻击力+20，最大生命值+200"
+item_cost = 10
+metadata/_custom_type_script = "uid://c4xh8anp7uons"

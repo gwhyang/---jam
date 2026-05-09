@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://do2ssv170loj2"]
+
+[ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_dhg87"]
+[ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_jkr6v"]
+[ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_okq6c"]
+
+[sub_resource type="Resource" id="Resource_axrio"]
+script = ExtResource("2_okq6c")
+chaged_stats = "health"
+changed_value = -50.0
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_n7fkn"]
+script = ExtResource("1_dhg87")
+trigger = 2
+_effect = SubResource("Resource_axrio")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[sub_resource type="Resource" id="Resource_8sh37"]
+script = ExtResource("2_okq6c")
+chaged_stats = "speed"
+metadata/_custom_type_script = "uid://m5yepdx7htjo"
+
+[sub_resource type="Resource" id="Resource_1w512"]
+script = ExtResource("1_dhg87")
+trigger = 2
+_effect = SubResource("Resource_8sh37")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
+[resource]
+script = ExtResource("2_jkr6v")
+item_vaild_slot = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: false,
+4: false,
+5: false,
+6: false,
+7: true
+})
+effects = Array[ExtResource("1_dhg87")]([SubResource("Resource_n7fkn"), SubResource("Resource_1w512")])
+item_name = "行军腿骨"
+decrption_override = "移动速度+200，生命值-50"
+metadata/_custom_type_script = "uid://c4xh8anp7uons"
