@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_cf7f5"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_0yx4h"]
 
+[sub_resource type="Resource" id="Resource_cf7f5"]
+script = ExtResource("1_cf7f5")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
 [resource]
 script = ExtResource("2_0yx4h")
+effects = Array[ExtResource("1_cf7f5")]([SubResource("Resource_cf7f5")])
 metadata/_custom_type_script = "uid://c4xh8anp7uons"
