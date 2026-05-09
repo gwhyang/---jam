@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bv3hroqdoijkd"]
 
-[ext_resource type="PackedScene" uid="uid://dinjr48mkmk3r" path="res://scenes/projectiles/projectile_pistol.tscn" id="1_8vv1r"]
+[ext_resource type="PackedScene" uid="uid://dinjr48mkmk3r" path="res://assets/scenes/projectiles/projectile_pistol.tscn" id="1_8vv1r"]
 [ext_resource type="Texture2D" uid="uid://dkji1b4um54aj" path="res://assets/sprites/Projectiles/Projectile_enemy.png" id="2_5d7ua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_20smo"]

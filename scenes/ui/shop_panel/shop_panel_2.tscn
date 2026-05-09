@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ed2aw1l2pwrl"]
 
-[ext_resource type="PackedScene" uid="uid://da6wnbouwsqba" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="1_lx3d2"]
-[ext_resource type="Script" uid="uid://bwed0gpqyfem4" path="res://scenes/ui/shop_panel/shop_panel2.gd" id="2_ehhko"]
+[ext_resource type="PackedScene" uid="uid://da6wnbouwsqba" path="res://assets/scenes/ui/shop_panel/shop_panel.tscn" id="1_lx3d2"]
+[ext_resource type="Script" uid="uid://bwed0gpqyfem4" path="res://assets/scenes/ui/shop_panel/shop_panel2.gd" id="2_ehhko"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx3d2"]
 bg_color = Color(0.260562, 0.59222, 0.368556, 1)

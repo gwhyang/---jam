@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bajw7ndvw1ywh"]
 
-[ext_resource type="Script" uid="uid://dkvcaj6i7piyb" path="res://scenes/bodies/body.gd" id="1_vb5fm"]
+[ext_resource type="Script" uid="uid://dkvcaj6i7piyb" path="res://assets/scenes/bodies/body.gd" id="1_vb5fm"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="2_7wwup"]
-[ext_resource type="PackedScene" uid="uid://k0vx1yvvka31" path="res://scenes/unit/Summon/summon_defense.tscn" id="2_s7t1b"]
+[ext_resource type="PackedScene" uid="uid://k0vx1yvvka31" path="res://assets/scenes/unit/Summon/summon_defense.tscn" id="2_s7t1b"]
 [ext_resource type="Texture2D" uid="uid://dskcgsodfwuhf" path="res://assets/sprites/Weapons/Hand/necrobinder.png" id="4_s7t1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a573l"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ra1o3w8cgebs"]
 
-[ext_resource type="Script" uid="uid://1g5peq27byqc" path="res://scenes/ui/coins_bag/coins_bag.gd" id="1_sdugs"]
+[ext_resource type="Script" uid="uid://1g5peq27byqc" path="res://assets/scenes/ui/coins_bag/coins_bag.gd" id="1_sdugs"]
 [ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="1_xjwma"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hgfo"]

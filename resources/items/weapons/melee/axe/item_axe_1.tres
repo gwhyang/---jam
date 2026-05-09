@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d8op56q0uwh1" path="res://assets/sprites/Weapons/Icons/weapon_axe_icon.png" id="1_i86bm"]
 [ext_resource type="Script" uid="uid://7e4rrmweiw5r" path="res://resources/items/weapons/item_weapon.gd" id="1_yy6db"]
-[ext_resource type="PackedScene" uid="uid://dk7unocc1wlk4" path="res://scenes/weapons/melee/weapon_axe.tscn" id="2_wusse"]
+[ext_resource type="PackedScene" uid="uid://dk7unocc1wlk4" path="res://assets/scenes/weapons/melee/weapon_axe.tscn" id="2_wusse"]
 [ext_resource type="Resource" uid="uid://bc28c1e48war" path="res://resources/items/weapons/melee/axe/stats_axe_1.tres" id="3_wusse"]
 [ext_resource type="Resource" uid="uid://dj35ttd1h22pk" path="res://resources/items/weapons/melee/axe/item_axe_2.tres" id="4_67gbg"]
 

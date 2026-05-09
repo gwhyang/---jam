@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b08parf65pnyt"]
 
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_fvc8g"]
-[ext_resource type="Script" uid="uid://dvlyuwfk08kre" path="res://scenes/unit/unit.gd" id="1_vh40f"]
-[ext_resource type="PackedScene" uid="uid://bmqel4s1uyivt" path="res://scenes/components/hurtbox_component.tscn" id="3_vh40f"]
-[ext_resource type="PackedScene" uid="uid://w113jketquk6" path="res://scenes/components/health_component.tscn" id="4_bhlit"]
-[ext_resource type="PackedScene" uid="uid://co2mhlyaydbyy" path="res://scenes/ui/health_bar/health_bar.tscn" id="5_vgvef"]
-[ext_resource type="Script" uid="uid://btynj5vqahy8j" path="res://scenes/unit/buff/buff_manager.gd" id="6_buffm"]
+[ext_resource type="Script" uid="uid://dvlyuwfk08kre" path="res://assets/scenes/unit/unit.gd" id="1_vh40f"]
+[ext_resource type="PackedScene" uid="uid://bmqel4s1uyivt" path="res://assets/scenes/components/hurtbox_component.tscn" id="3_vh40f"]
+[ext_resource type="PackedScene" uid="uid://w113jketquk6" path="res://assets/scenes/components/health_component.tscn" id="4_bhlit"]
+[ext_resource type="PackedScene" uid="uid://co2mhlyaydbyy" path="res://assets/scenes/ui/health_bar/health_bar.tscn" id="5_vgvef"]
+[ext_resource type="Script" uid="uid://btynj5vqahy8j" path="res://assets/scenes/unit/buff/buff_manager.gd" id="6_buffm"]
 
 [sub_resource type="Animation" id="Animation_0wuuu"]
 length = 0.001

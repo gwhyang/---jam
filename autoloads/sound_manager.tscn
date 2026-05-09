@@ -75,6 +75,7 @@ bus = &"Sfx"
 
 [node name="battle" type="AudioStreamPlayer" parent="Music" unique_id=1986691335]
 stream = ExtResource("2_x8bxb")
+volume_db = -1.305
 bus = &"Bgm"
 
 [node name="end" type="AudioStreamPlayer" parent="Music" unique_id=87736963]

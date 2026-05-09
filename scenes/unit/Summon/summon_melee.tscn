@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b400yckp6hia3"]
 
-[ext_resource type="PackedScene" uid="uid://cgec14ic5wo26" path="res://scenes/unit/Summon/summon_base.tscn" id="1_oamks"]
+[ext_resource type="PackedScene" uid="uid://cgec14ic5wo26" path="res://assets/scenes/unit/Summon/summon_base.tscn" id="1_oamks"]
 [ext_resource type="Script" uid="uid://5tkkf27wtphe" path="res://resources/units/unit_stats.gd" id="2_lpbs1"]
-[ext_resource type="Script" uid="uid://b6ivhpessi1rf" path="res://scenes/unit/Summon/move_behavior/melee_move.gd" id="2_q6qpw"]
+[ext_resource type="Script" uid="uid://b6ivhpessi1rf" path="res://assets/scenes/unit/Summon/move_behavior/melee_move.gd" id="2_q6qpw"]
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="3_geypv"]
-[ext_resource type="PackedScene" uid="uid://cq7fpp1biy0cq" path="res://scenes/components/hitbox_component.tscn" id="4_1oe77"]
+[ext_resource type="PackedScene" uid="uid://cq7fpp1biy0cq" path="res://assets/scenes/components/hitbox_component.tscn" id="4_1oe77"]
 
 [sub_resource type="Resource" id="Resource_chn41"]
 script = ExtResource("2_lpbs1")

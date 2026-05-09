@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cmsuwjttmavt5"]
 
-[ext_resource type="PackedScene" uid="uid://3n2r6ufcoohy" path="res://scenes/weapons/weapon_base.tscn" id="1_g1grj"]
-[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://shaders/outline.gdshader" id="2_12s28"]
+[ext_resource type="PackedScene" uid="uid://3n2r6ufcoohy" path="res://assets/scenes/weapons/weapon_base.tscn" id="1_g1grj"]
+[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://assets/shaders/outline.gdshader" id="2_12s28"]
 [ext_resource type="Texture2D" uid="uid://bbsd0o1wllf0p" path="res://assets/sprites/Weapons/Range/WeaponPistol.png" id="2_hqh7m"]
-[ext_resource type="Script" uid="uid://d4d62uswc6sls" path="res://scenes/weapons/range/range_behavior.gd" id="3_x7rn7"]
+[ext_resource type="Script" uid="uid://d4d62uswc6sls" path="res://assets/scenes/weapons/range/range_behavior.gd" id="3_x7rn7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o42te"]
 resource_local_to_scene = true

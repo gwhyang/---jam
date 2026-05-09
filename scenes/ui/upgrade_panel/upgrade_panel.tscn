@@ -1,8 +1,8 @@
-[gd_scene load_steps=53 format=3 uid="uid://6d0lq4ikj3be"]
+[gd_scene format=3 uid="uid://6d0lq4ikj3be"]
 
-[ext_resource type="PackedScene" uid="uid://b7227lh736bjg" path="res://scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
-[ext_resource type="PackedScene" uid="uid://be382tyiid0b4" path="res://scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
-[ext_resource type="Script" uid="uid://rkqfg3rnku27" path="res://scenes/ui/upgrade_panel/upgrade_panel.gd" id="1_l8hix"]
+[ext_resource type="PackedScene" uid="uid://b7227lh736bjg" path="res://assets/scenes/ui/stats_container/stats_container.tscn" id="1_6gbsu"]
+[ext_resource type="PackedScene" uid="uid://be382tyiid0b4" path="res://assets/scenes/ui/upgrade_card/upgrade_card.tscn" id="1_52meh"]
+[ext_resource type="Script" uid="uid://rkqfg3rnku27" path="res://assets/scenes/ui/upgrade_panel/upgrade_panel.gd" id="1_l8hix"]
 [ext_resource type="Script" uid="uid://bpqt5h4wgrulw" path="res://resources/items/upgrades/item_upgrade.gd" id="2_aghkh"]
 [ext_resource type="Resource" uid="uid://chfx34trkjpk7" path="res://resources/items/upgrades/data/block/upgrade_block_1.tres" id="3_oekas"]
 [ext_resource type="Resource" uid="uid://coth3bmqwlujl" path="res://resources/items/upgrades/data/block/upgrade_block_2.tres" id="4_k56t5"]

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://qlaoxi3gstek"]
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://qlaoxi3gstek"]
 
-[ext_resource type="PackedScene" uid="uid://dinjr48mkmk3r" path="res://scenes/projectiles/projectile_pistol.tscn" id="1_eqhys"]
+[ext_resource type="PackedScene" uid="uid://dinjr48mkmk3r" path="res://assets/scenes/projectiles/projectile_pistol.tscn" id="1_eqhys"]
 [ext_resource type="Script" uid="uid://ce7kbvo7gs6or" path="res://resources/items/weapons/weapon_stats.gd" id="1_khnh1"]
 
 [resource]

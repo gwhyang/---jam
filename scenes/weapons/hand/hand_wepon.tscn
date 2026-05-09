@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dg1h8yasmsxgn"]
 
-[ext_resource type="PackedScene" uid="uid://4vr5hjo0hasi" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_w6v67"]
-[ext_resource type="Script" uid="uid://d2a6fs36550vt" path="res://scenes/weapons/hand/hand_weapon.gd" id="2_2aba0"]
-[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://shaders/outline.gdshader" id="2_fjoam"]
+[ext_resource type="PackedScene" uid="uid://4vr5hjo0hasi" path="res://assets/scenes/weapons/melee/weapon_punch.tscn" id="1_w6v67"]
+[ext_resource type="Script" uid="uid://d2a6fs36550vt" path="res://assets/scenes/weapons/hand/hand_weapon.gd" id="2_2aba0"]
+[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://assets/shaders/outline.gdshader" id="2_fjoam"]
 [ext_resource type="Texture2D" uid="uid://dskcgsodfwuhf" path="res://assets/sprites/Weapons/Hand/necrobinder.png" id="4_2aba0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2aba0"]

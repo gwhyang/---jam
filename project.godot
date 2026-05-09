@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="骨头土豆兄弟"
-run/main_scene="uid://c32vifq51i5ei"
+run/main_scene="uid://wvmis3rxpl4x"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 

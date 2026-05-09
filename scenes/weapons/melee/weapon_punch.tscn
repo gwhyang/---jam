@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://4vr5hjo0hasi"]
 
-[ext_resource type="PackedScene" uid="uid://3n2r6ufcoohy" path="res://scenes/weapons/weapon_base.tscn" id="1_soyvn"]
-[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://shaders/outline.gdshader" id="2_etoc4"]
-[ext_resource type="PackedScene" uid="uid://cq7fpp1biy0cq" path="res://scenes/components/hitbox_component.tscn" id="3_sv013"]
-[ext_resource type="Script" uid="uid://cxctyp1jhol1l" path="res://scenes/weapons/melee/melee_behavior.gd" id="4_etoc4"]
+[ext_resource type="PackedScene" uid="uid://3n2r6ufcoohy" path="res://assets/scenes/weapons/weapon_base.tscn" id="1_soyvn"]
+[ext_resource type="Shader" uid="uid://d4jqljkt30eel" path="res://assets/shaders/outline.gdshader" id="2_etoc4"]
+[ext_resource type="PackedScene" uid="uid://cq7fpp1biy0cq" path="res://assets/scenes/components/hitbox_component.tscn" id="3_sv013"]
+[ext_resource type="Script" uid="uid://cxctyp1jhol1l" path="res://assets/scenes/weapons/melee/melee_behavior.gd" id="4_etoc4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_etoc4"]
 resource_local_to_scene = true
