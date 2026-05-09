@@ -27,14 +27,16 @@ func _set_item(value: ItemBase) -> void:
 	for node:Node in [item_name,item_slot,item_description,coins_label]:
 		if not node.is_node_ready:
 			await node.ready
+	if not bone_item:
+		return
 	item_name.text = bone_item.item_name
-	item_slot.text=""
-	for slot in bone_item.item_vaild_slot:
-		if not bone_item.item_vaild_slot[slot]:
-			continue
-		if item_slot.text:
-			item_slot.text +=" "
-		item_slot.text += slot_name[slot]
+	#item_slot.text=""
+	#for slot in bone_item.item_vaild_slot:
+		#if not bone_item.item_vaild_slot[slot]:
+			#continue
+		#if item_slot.text:
+			#item_slot.text +=" "
+		#item_slot.text += slot_name[slot]
 	item_description.text = value.get_description()
 	coins_label.text = str(value.item_cost)
 	

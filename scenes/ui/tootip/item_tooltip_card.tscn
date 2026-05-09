@@ -6,6 +6,7 @@
 [node name="ItemTooltipCard" unique_id=107353915 instance=ExtResource("1_16ut2")]
 custom_minimum_size = Vector2(320, 320)
 script = ExtResource("2_tmrb5")
+item = null
 
 [node name="ItemBG" parent="MarginContainer/Control" index="0"]
 visible = false
