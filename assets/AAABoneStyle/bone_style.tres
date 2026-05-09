@@ -1,0 +1,18 @@
+[gd_resource type="Theme" format=3 uid="uid://cyd3t18qflqel"]
+
+[ext_resource type="StyleBox" uid="uid://c2m6lr7u5rtbf" path="res://AAABoneStyle/deflut_button_texutre.tres" id="1_5n0c8"]
+[ext_resource type="FontFile" uid="uid://dedmcsodrdxy3" path="res://AAABoneStyle/NotoSansSC-VariableFont_wght.ttf" id="1_lrdya"]
+
+[sub_resource type="FontVariation" id="FontVariation_ymyou"]
+base_font = ExtResource("1_lrdya")
+variation_opentype = {
+2003265652: 900
+}
+
+[resource]
+default_font = SubResource("FontVariation_ymyou")
+Button/styles/disabled = ExtResource("1_5n0c8")
+Button/styles/focus = ExtResource("1_5n0c8")
+Button/styles/hover = ExtResource("1_5n0c8")
+Button/styles/normal = ExtResource("1_5n0c8")
+Button/styles/pressed = ExtResource("1_5n0c8")

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cxocfiyoifvx3"]
+
+[ext_resource type="Texture2D" uid="uid://pewx8swpy1mg" path="res://AAABoneArt/bone game asset.png" id="1_sv8ix"]
+
+[resource]
+atlas = ExtResource("1_sv8ix")
+region = Rect2(2328, 1600, 744, 656)
