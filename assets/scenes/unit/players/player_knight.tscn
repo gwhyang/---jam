@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://btsffjxpnwri3"]
-
-[ext_resource type="PackedScene" uid="uid://dhj46crcrqjw6" path="res://assets/scenes/unit/players/player_well_rounded.tscn" id="1_tsqjv"]
-[ext_resource type="Resource" uid="uid://duuvrfevhtmou" path="res://resources/units/players/stats_player_knight.tres" id="2_rn052"]
-
-[node name="PlayerKnight" unique_id=1810640590 instance=ExtResource("1_tsqjv")]
-stats = ExtResource("2_rn052")
