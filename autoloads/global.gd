@@ -10,6 +10,7 @@ signal on_summon_died(summon:Summon)
 
 signal shake_camera(strength:float,duration:float)
 
+
 const FLASH_MATERIAL = preload("res://effects/flash_materia.tres")
 const FLOATING_TEXT_SCENE = preload("res://scenes/ui/floating_text/floating_text.tscn")
 const COINS_SCENE = preload("res://scenes/coins/coins.tscn")

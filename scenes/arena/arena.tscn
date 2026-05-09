@@ -36,6 +36,8 @@
 [ext_resource type="Script" uid="uid://cqnpgra6ndvvw" path="res://resources/item_effects/effects/add_buff.gd" id="32_qd24e"]
 [ext_resource type="Texture2D" uid="uid://cxcwrnvk6mcyt" path="res://icon.svg" id="33_pc1hj"]
 [ext_resource type="PackedScene" uid="uid://b5tujei6p8fpg" path="res://scenes/ui/SettingPanel/setting_panel.tscn" id="36_pc1hj"]
+[ext_resource type="Script" uid="uid://vt6c8esvw34y" path="res://scenes/arena/tooltips.gd" id="37_esuet"]
+[ext_resource type="PackedScene" uid="uid://behs2mbf11nms" path="res://scenes/ui/tootip/tooltip_card.tscn" id="38_6epk0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
@@ -218,6 +220,14 @@ visible = false
 
 [node name="SettingPanel" parent="GameUI" unique_id=915720583 instance=ExtResource("36_pc1hj")]
 visible = false
+
+[node name="Tooltips" type="Control" parent="GameUI" unique_id=810654136]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("37_esuet")
+item_tooltip_scene = ExtResource("38_6epk0")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=759593665]
 

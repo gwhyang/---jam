@@ -28,3 +28,11 @@ func _set_item(value: ItemBase) -> void:
 func _on_pressed() -> void:
 	on_item_card_selected.emit(self)
 		
+
+
+func _on_mouse_entered() -> void:
+	Game.show_tooltip(self)
+
+
+func _on_mouse_exited() -> void:
+	Game.hide_tooltip(self)

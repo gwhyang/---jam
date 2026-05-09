@@ -31,9 +31,6 @@ func _ready():
 	#is_background_playing = true
 	#on_music_finished()
 
-func _process(delta: float) -> void:
-	print(current_player.volume_linear)
-	print(current_player.playing)
 	
 func sfx_play(SFXname:String) -> void :
 	var sound_name := SFXname.to_lower()
