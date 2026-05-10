@@ -41,12 +41,12 @@ func initialize_run()->void:
 	spawner.wave_index = 1
 
 func _on_selection_panel_on_selection_completed() -> void:
+	super()
 	var initial_item_card = equip_panel.add_equipment_item_card(Global.main_skull_item_selected)
 	
 	initial_item_card.hide()
-	equip_panel.equip_item(Global.BoneSlot.head,Global.main_skull_item_selected)
-	equip_panel.slot_card[Global.BoneSlot.head] = initial_item_card
-	super()
+	equip_panel.equip_item(Global.BoneSlot.spine,Global.main_skull_item_selected)
+	equip_panel.slot_card[Global.BoneSlot.spine] = initial_item_card
 	SoundManager.music_play("battle")
 
 func game_win():

@@ -12,11 +12,7 @@ signal on_item_purchased(item: ItemBase)
 @onready var coins_label: Label = %CoinsLabel
 
 func _set_shop_item(value: ItemBase) -> void:
-	if not is_node_ready():
-		await ready
 	shop_item = value
-	#for node in [item_icon,item_name,item_type]:
-		#if node.
 	item_icon.texture = value.item_icon
 	item_name.text = value.item_name
 	item_type.text = ItemBase.ItemType.keys()[value.item_type]

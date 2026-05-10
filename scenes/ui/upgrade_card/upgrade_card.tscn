@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://be382tyiid0b4"]
+[gd_scene load_steps=6 format=3 uid="uid://be382tyiid0b4"]
 
-[ext_resource type="Script" uid="uid://3edt2mpwwc3" path="res://assets/scenes/ui/upgrade_card/upgrade_card.gd" id="1_mkexl"]
-[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://assets/Styles/common_style.tres" id="1_v41mk"]
+[ext_resource type="Script" uid="uid://3edt2mpwwc3" path="res://scenes/ui/upgrade_card/upgrade_card.gd" id="1_mkexl"]
+[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://Styles/common_style.tres" id="1_v41mk"]
 [ext_resource type="Texture2D" uid="uid://dn68qq5evmvwa" path="res://assets/sprites/Upgrades/12.png" id="2_p145h"]
-[ext_resource type="PackedScene" uid="uid://hrw53mtmx4hv" path="res://assets/scenes/ui/custom_button/custom_buttom.tscn" id="4_kjnsj"]
+[ext_resource type="PackedScene" uid="uid://hrw53mtmx4hv" path="res://scenes/ui/custom_button/custom_buttom.tscn" id="4_kjnsj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjnsj"]
 font_size = 28

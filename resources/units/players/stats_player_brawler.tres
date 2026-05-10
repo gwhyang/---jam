@@ -1,13 +1,17 @@
 [gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://beje5nf384d0m"]
 
-[ext_resource type="Texture2D" uid="uid://dpxw8tsbgrfse" path="res://assets/sprites/Players/Player_2.png" id="1_artcn"]
+[ext_resource type="Texture2D" uid="uid://pewx8swpy1mg" path="res://assets/AAABoneArt/bone game asset.png" id="1_artcn"]
 [ext_resource type="Script" uid="uid://5tkkf27wtphe" path="res://resources/units/unit_stats.gd" id="1_fokdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhuv5"]
+atlas = ExtResource("1_artcn")
+region = Rect2(2427, 39, 1037, 967)
 
 [resource]
 script = ExtResource("1_fokdh")
-name = "Brawler"
-icon = ExtResource("1_artcn")
-health = 999999999
+name = "骨头人"
+icon = SubResource("AtlasTexture_qhuv5")
+health = 13
 health_increase_per_wave = 0.0
 damage = 4
 damage_increase_per_wave = 0.0

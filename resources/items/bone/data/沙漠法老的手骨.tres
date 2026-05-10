@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://bf3g2tmww1u5k"]
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://bbf3jffcgooqj"]
 
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_suxl1"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_10jo4"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_qcg55"]
+[ext_resource type="Texture2D" uid="uid://dcgh31gyk4feu" path="res://assets/AAABoneArt/BoneHand03.tres" id="3_npyeo"]
 
 [sub_resource type="Resource" id="Resource_4lxqh"]
 script = ExtResource("2_10jo4")
@@ -30,6 +31,7 @@ item_vaild_slot = Dictionary[int, bool]({
 })
 effects = Array[ExtResource("1_suxl1")]([SubResource("Resource_bsnji")])
 item_name = "沙漠法老的手骨"
+item_icon = ExtResource("3_npyeo")
 decrption_override = "召唤物伤害+10"
 item_cost = 7
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

@@ -1,14 +1,24 @@
 [gd_scene format=3 uid="uid://cgec14ic5wo26"]
 
-[ext_resource type="PackedScene" uid="uid://b08parf65pnyt" path="res://assets/scenes/unit/unit.tscn" id="1_cs05x"]
-[ext_resource type="Script" uid="uid://dpl0g8tfxlgqu" path="res://assets/scenes/unit/Summon/summon.gd" id="2_b4w1c"]
-[ext_resource type="Script" uid="uid://cfp5ndd5xdbt5" path="res://assets/scenes/unit/Summon/summon_move_behavoir.gd" id="3_b4w1c"]
-[ext_resource type="Script" uid="uid://bxrtw2tsg8125" path="res://assets/scenes/unit/target_getter.gd" id="4_7nvlb"]
+[ext_resource type="PackedScene" uid="uid://b08parf65pnyt" path="res://scenes/unit/unit.tscn" id="1_cs05x"]
+[ext_resource type="Script" uid="uid://dpl0g8tfxlgqu" path="res://scenes/unit/Summon/summon.gd" id="2_b4w1c"]
+[ext_resource type="Script" uid="uid://cfp5ndd5xdbt5" path="res://scenes/unit/Summon/summon_move_behavoir.gd" id="3_b4w1c"]
+[ext_resource type="Texture2D" uid="uid://pewx8swpy1mg" path="res://AAABoneArt/bone game asset.png" id="3_xtoes"]
+[ext_resource type="Script" uid="uid://bxrtw2tsg8125" path="res://scenes/unit/target_getter.gd" id="4_7nvlb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj07p"]
+atlas = ExtResource("3_xtoes")
+region = Rect2(0, 0, 1304, 728)
 
 [node name="summon_" unique_id=918819364 groups=["summon_unit"] instance=ExtResource("1_cs05x")]
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("2_b4w1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Sprite" parent_id_path=PackedInt32Array(1627346367) index="0" unique_id=2030098138]
+position = Vector2(-40, -12.999999)
+scale = Vector2(0.2115385, 0.21153846)
+texture = SubResource("AtlasTexture_hj07p")
 
 [node name="HurtboxComponent" parent="." index="3" unique_id=325032355]
 collision_layer = 256

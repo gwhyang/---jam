@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_v1qjk"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_7p81k"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_xovtk"]
+[ext_resource type="Texture2D" uid="uid://cw12tvi0tpqoq" path="res://assets/AAABoneArt/BoneHead02.tres" id="3_rqlsg"]
 
 [sub_resource type="Resource" id="Resource_w4bym"]
 script = ExtResource("2_xovtk")
@@ -42,6 +43,7 @@ item_vaild_slot = Dictionary[int, bool]({
 })
 effects = Array[ExtResource("1_v1qjk")]([SubResource("Resource_ctgei"), SubResource("Resource_tusi5")])
 item_name = "亡灵低语头骨"
+item_icon = ExtResource("3_rqlsg")
 decrption_override = "召唤物上限+5，所有召唤物最大生命值-100"
 item_cost = 10
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

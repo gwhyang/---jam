@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvahcg4ecxfkm"]
 
 [ext_resource type="PackedScene" uid="uid://b71iqvdxs6dem" path="res://scenes/ui/item_card/item_card.tscn" id="1_i6br7"]
-[ext_resource type="Script" uid="uid://bi6f04w28hew0" path="res://assets/scenes/ui/equip_panel/equip_panel.gd" id="1_m88xd"]
+[ext_resource type="Script" uid="uid://bi6f04w28hew0" path="res://scenes/ui/equip_panel/equip_panel.gd" id="1_m88xd"]
 [ext_resource type="Script" uid="uid://dowanpccbkp8p" path="res://resources/items/item_base.gd" id="2_euc2v"]
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="3_2xi03"]
 [ext_resource type="Texture2D" uid="uid://cvqbrfm8g7paj" path="res://assets/sprites/Upgrades/10.png" id="3_br2hk"]
@@ -260,6 +260,7 @@ size_flags_vertical = 4
 
 [node name="rib0" parent="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=1316815100 instance=ExtResource("1_i6br7")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -272,6 +273,7 @@ size_flags_vertical = 4
 
 [node name="rib1" parent="MarginContainer/Control/HBoxContainer/VBoxContainer2/Panel/VBoxContainer/HBoxContainer" unique_id=992135047 instance=ExtResource("1_i6br7")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

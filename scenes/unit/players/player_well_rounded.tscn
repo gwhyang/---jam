@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://dhj46crcrqjw6"]
 
-[ext_resource type="PackedScene" uid="uid://b08parf65pnyt" path="res://assets/scenes/unit/unit.tscn" id="1_wkafa"]
-[ext_resource type="Script" uid="uid://ci4m1lta74ij3" path="res://assets/scenes/unit/players/player.gd" id="2_etcc1"]
-[ext_resource type="Resource" uid="uid://232fevag55pv" path="res://resources/units/players/stats_player_well_rounded.tres" id="3_xa7el"]
-[ext_resource type="Script" uid="uid://da5vx11l2s5ro" path="res://assets/scenes/unit/players/trail.gd" id="4_0kki1"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="5_ht2l1"]
+[ext_resource type="PackedScene" uid="uid://b08parf65pnyt" path="res://scenes/unit/unit.tscn" id="1_wkafa"]
+[ext_resource type="Script" uid="uid://ci4m1lta74ij3" path="res://scenes/unit/players/player.gd" id="2_etcc1"]
+[ext_resource type="Resource" uid="uid://beje5nf384d0m" path="res://resources/units/players/stats_player_brawler.tres" id="3_20xkg"]
+[ext_resource type="Script" uid="uid://da5vx11l2s5ro" path="res://scenes/unit/players/trail.gd" id="4_0kki1"]
 [ext_resource type="Material" uid="uid://vs0n6lkgy04x" path="res://effects/flash_materia.tres" id="5_viu20"]
-[ext_resource type="Script" uid="uid://4hxh2fcfksj1" path="res://assets/scenes/unit/players/weapon_container.gd" id="7_20xkg"]
+[ext_resource type="Texture2D" uid="uid://pewx8swpy1mg" path="res://assets/AAABoneArt/bone game asset.png" id="6_20xkg"]
+[ext_resource type="Script" uid="uid://4hxh2fcfksj1" path="res://scenes/unit/players/weapon_container.gd" id="7_20xkg"]
 
 [sub_resource type="Curve" id="Curve_ht2l1"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45lct"]
+atlas = ExtResource("6_20xkg")
+region = Rect2(2424, -16, 1056, 1024)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xa7el"]
 radius = 4.47214
@@ -61,7 +65,7 @@ script = ExtResource("2_etcc1")
 dash_duration = 0.4
 dash_speed_multi = 2.7
 dash_cooldown = 1.5
-stats = ExtResource("3_xa7el")
+stats = ExtResource("3_20xkg")
 
 [node name="Trail" type="Line2D" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="0" unique_id=1670535078 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
@@ -80,7 +84,12 @@ z_index = 1
 z_index = 1
 material = ExtResource("5_viu20")
 use_parent_material = true
-texture = ExtResource("5_ht2l1")
+offset = Vector2(-136.52, -71.31)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Sprite" index="0" unique_id=586481281]
+position = Vector2(-36, -37)
+scale = Vector2(0.20703124, 0.20703124)
+texture = SubResource("AtlasTexture_45lct")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=51283714]
 z_index = 1

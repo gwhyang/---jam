@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b7227lh736bjg"]
+[gd_scene load_steps=5 format=3 uid="uid://b7227lh736bjg"]
 
-[ext_resource type="Script" uid="uid://b0v5oytdqd0u7" path="res://assets/scenes/ui/stats_container/stats_container.gd" id="1_agl2i"]
+[ext_resource type="Script" uid="uid://b0v5oytdqd0u7" path="res://scenes/ui/stats_container/stats_container.gd" id="1_agl2i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q67w4"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)

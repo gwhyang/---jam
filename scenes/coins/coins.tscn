@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bx5qyqef271yx"]
 
-[ext_resource type="Script" uid="uid://cyilugm1isai8" path="res://assets/scenes/coins/coins.gd" id="1_vmf3v"]
+[ext_resource type="Script" uid="uid://cyilugm1isai8" path="res://scenes/coins/coins.gd" id="1_vmf3v"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="2_c6qii"]
 [ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="3_5b41l"]
 [ext_resource type="Texture2D" uid="uid://x4f4a3012dc1" path="res://assets/sprites/Gold/gold_2.png" id="4_rjgbk"]
 [ext_resource type="Texture2D" uid="uid://c12thf546nxm8" path="res://assets/sprites/Gold/gold_3.png" id="5_l6sdy"]
 [ext_resource type="Texture2D" uid="uid://ph7csdu4c02d" path="res://assets/sprites/Gold/gold_4.png" id="6_7focv"]
+[ext_resource type="Texture2D" uid="uid://cxocfiyoifvx3" path="res://AAABoneArt/DropItem.tres" id="7_c6qii"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c7nue"]
 animations = [{
@@ -40,12 +41,18 @@ scale = Vector2(0.2, 0.4)
 texture = ExtResource("2_c6qii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1127022644]
+visible = false
 position = Vector2(0, -21)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_c7nue")
 autoplay = "default"
 frame = 3
 frame_progress = 0.331546
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=768833632]
+position = Vector2(0, -22)
+scale = Vector2(0.067073174, 0.067073174)
+texture = ExtResource("7_c6qii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862516460]
 position = Vector2(0, -19)

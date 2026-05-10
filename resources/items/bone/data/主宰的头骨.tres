@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_53161"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_co2ju"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_o4e7a"]
+[ext_resource type="Texture2D" uid="uid://bpb17twblu66s" path="res://assets/AAABoneArt/BoneHead01.tres" id="3_idbal"]
 
 [sub_resource type="Resource" id="Resource_uuchw"]
 script = ExtResource("2_co2ju")
@@ -40,6 +41,9 @@ trigger = 2
 _effect = SubResource("Resource_cdkxb")
 metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q71cx"]
+atlas = ExtResource("3_idbal")
+
 [resource]
 script = ExtResource("2_o4e7a")
 item_vaild_slot = Dictionary[int, bool]({
@@ -54,6 +58,7 @@ item_vaild_slot = Dictionary[int, bool]({
 })
 effects = Array[ExtResource("1_53161")]([SubResource("Resource_cmco4"), SubResource("Resource_lqufu"), SubResource("Resource_0myvd")])
 item_name = "主宰的头骨"
+item_icon = SubResource("AtlasTexture_q71cx")
 decrption_override = "召唤物上限-2，所有召唤物攻击力+20，最大生命值+200"
 item_cost = 10
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

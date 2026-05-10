@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://5owtimqbs5bw"]
 
-[ext_resource type="PackedScene" uid="uid://bral4sraa0gjv" path="res://assets/scenes/unit/enemy/enemy_chaser_slow.tscn" id="1_ksdef"]
+[ext_resource type="PackedScene" uid="uid://bral4sraa0gjv" path="res://scenes/unit/enemy/enemy_chaser_slow.tscn" id="1_ksdef"]
 [ext_resource type="Resource" uid="uid://bg0jmv6kskg4" path="res://resources/units/enemies/stats_enemy_charger.tres" id="2_4i178"]
 [ext_resource type="Texture2D" uid="uid://emsi6ifyt0vf" path="res://assets/sprites/Enemies/Enemy_5.png" id="2_knpng"]
-[ext_resource type="Script" uid="uid://dwdlyw531iahf" path="res://assets/scenes/unit/enemy/charge_behavior.gd" id="4_4i178"]
+[ext_resource type="Script" uid="uid://dwdlyw531iahf" path="res://scenes/unit/enemy/charge_behavior.gd" id="4_4i178"]
 
 [sub_resource type="Animation" id="Animation_eecfj"]
 length = 0.001
@@ -43,24 +43,22 @@ _data = {
 &"charge": SubResource("Animation_1som8")
 }
 
-[node name="EnemyCharger" instance=ExtResource("1_ksdef")]
+[node name="EnemyCharger" unique_id=2142242810 instance=ExtResource("1_ksdef")]
 stats = ExtResource("2_4i178")
 
-[node name="Sprite" parent="Visuals" index="1"]
+[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(2033358750) index="1" unique_id=1627346367]
 texture = ExtResource("2_knpng")
 
-[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+[node name="CollisionShape2D" parent="HurtboxComponent" parent_id_path=PackedInt32Array(325032355) index="0" unique_id=962612549]
 visible = false
 
-[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+[node name="CollisionShape2D" parent="HitboxComponent" parent_id_path=PackedInt32Array(1187907772) index="0" unique_id=1037409316]
 visible = false
 
-[node name="ChargeBehavior" type="Node2D" parent="." index="10" node_paths=PackedStringArray("enemy", "anim_effects")]
+[node name="ChargeBehavior" type="Node2D" parent="." index="10" unique_id=801911792 node_paths=PackedStringArray("enemy", "anim_effects")]
 script = ExtResource("4_4i178")
 enemy = NodePath("..")
 anim_effects = NodePath("../AnimationEffects")
 
-[node name="AnimationEffects" type="AnimationPlayer" parent="." index="11"]
-libraries = {
-&"": SubResource("AnimationLibrary_j2mds")
-}
+[node name="AnimationEffects" type="AnimationPlayer" parent="." index="11" unique_id=1748795066]
+libraries/ = SubResource("AnimationLibrary_j2mds")

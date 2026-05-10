@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b71iqvdxs6dem"]
 
-[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://assets/Styles/common_style.tres" id="1_ygfnm"]
-[ext_resource type="Script" uid="uid://jmrj2exxfovu" path="res://assets/scenes/ui/item_card/item_card.gd" id="2_8p6uk"]
+[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://Styles/common_style.tres" id="1_ygfnm"]
+[ext_resource type="Script" uid="uid://jmrj2exxfovu" path="res://scenes/ui/item_card/item_card.gd" id="2_8p6uk"]
 
 [node name="ItemCard" type="Button" unique_id=1242742135]
 custom_minimum_size = Vector2(80, 80)

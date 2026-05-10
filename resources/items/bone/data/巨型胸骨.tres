@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://c6wtjgsjtvr62"]
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://d2wv02co7f0oe"]
 
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_pnnn2"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_1p07i"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_hu2rh"]
+[ext_resource type="Script" uid="uid://10uvqqaxnaql" path="res://resources/item_effects/effects/summon.gd" id="3_6gjfp"]
+[ext_resource type="PackedScene" uid="uid://b400yckp6hia3" path="res://scenes/unit/Summon/summon_melee.tscn" id="4_8tio7"]
+[ext_resource type="Texture2D" uid="uid://c5rm4in7c4k2h" path="res://assets/AAABoneArt/BoneBody01.tres" id="5_jyppo"]
 
 [sub_resource type="Resource" id="Resource_100d0"]
 script = ExtResource("2_hu2rh")
@@ -28,6 +31,17 @@ trigger = 2
 _effect = SubResource("Resource_b0hih")
 metadata/_custom_type_script = "uid://b6oabeksu6wpf"
 
+[sub_resource type="Resource" id="Resource_8f5js"]
+script = ExtResource("3_6gjfp")
+summon_scene = ExtResource("4_8tio7")
+metadata/_custom_type_script = "uid://10uvqqaxnaql"
+
+[sub_resource type="Resource" id="Resource_k07jd"]
+script = ExtResource("1_pnnn2")
+trigger = 4
+_effect = SubResource("Resource_8f5js")
+metadata/_custom_type_script = "uid://b6oabeksu6wpf"
+
 [resource]
 script = ExtResource("2_1p07i")
 item_vaild_slot = Dictionary[int, bool]({
@@ -40,8 +54,9 @@ item_vaild_slot = Dictionary[int, bool]({
 6: false,
 7: false
 })
-effects = Array[ExtResource("1_pnnn2")]([SubResource("Resource_3wudq"), SubResource("Resource_ivedx")])
+effects = Array[ExtResource("1_pnnn2")]([SubResource("Resource_3wudq"), SubResource("Resource_ivedx"), SubResource("Resource_k07jd")])
 item_name = "巨型胸骨"
+item_icon = ExtResource("5_jyppo")
 decrption_override = "召唤物生命+150，移速-100"
 item_cost = 5
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

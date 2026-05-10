@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://kr5mgyo8rsnv"]
+[gd_scene load_steps=6 format=3 uid="uid://kr5mgyo8rsnv"]
 
-[ext_resource type="Script" uid="uid://iu54lr05a6xs" path="res://assets/scenes/effects/enemy_spawn_effect.gd" id="1_cayau"]
+[ext_resource type="Script" uid="uid://iu54lr05a6xs" path="res://scenes/effects/enemy_spawn_effect.gd" id="1_cayau"]
 [ext_resource type="Texture2D" uid="uid://cg8i01i4vek32" path="res://assets/sprites/Spawn_mark.png" id="1_dr0xf"]
 
 [sub_resource type="Animation" id="Animation_2vy0c"]

@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://dft28fc8va61v"]
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://v73ccvt4v1ie"]
 
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_lpw50"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_8chna"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="2_mcp50"]
+[ext_resource type="Texture2D" uid="uid://86b4jd04tilh" path="res://assets/AAABoneArt/BoneLeg01.tres" id="3_2mf7q"]
 
 [sub_resource type="Resource" id="Resource_d1ujk"]
 script = ExtResource("2_8chna")
@@ -30,6 +31,7 @@ item_vaild_slot = Dictionary[int, bool]({
 })
 effects = Array[ExtResource("1_lpw50")]([SubResource("Resource_driea")])
 item_name = "弱小的腿骨"
+item_icon = ExtResource("3_2mf7q")
 decrption_override = "移速+50"
 item_cost = 3
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

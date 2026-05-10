@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5tujei6p8fpg"]
 
-[ext_resource type="Script" uid="uid://b0kcrkopfduoe" path="res://assets/scenes/ui/SettingPanel/volume_slider.gd" id="1_cdjdy"]
-[ext_resource type="Script" uid="uid://ctr6042j0ipe4" path="res://assets/scenes/ui/SettingPanel/setting_panel.gd" id="1_oqyit"]
+[ext_resource type="Script" uid="uid://b0kcrkopfduoe" path="res://scenes/ui/SettingPanel/volume_slider.gd" id="1_cdjdy"]
+[ext_resource type="Script" uid="uid://ctr6042j0ipe4" path="res://scenes/ui/SettingPanel/setting_panel.gd" id="1_oqyit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slwd8"]
 

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://fg005invhju3"]
+[gd_resource type="Resource" script_class="BoneItem" format=3 uid="uid://ce5hvt7mm5igy"]
 
 [ext_resource type="Script" uid="uid://b6oabeksu6wpf" path="res://resources/item_effects/packed_effect.gd" id="1_mye0d"]
 [ext_resource type="Script" uid="uid://m5yepdx7htjo" path="res://resources/item_effects/effects/item_status_change.gd" id="2_ws64s"]
+[ext_resource type="Texture2D" uid="uid://bs3j57iylralv" path="res://assets/AAABoneArt/BoneHand02.tres" id="3_8c83c"]
 [ext_resource type="Script" uid="uid://c4xh8anp7uons" path="res://resources/items/bone/bones.gd" id="3_lc6f7"]
 
 [sub_resource type="Resource" id="Resource_ls3rb"]
@@ -30,6 +31,7 @@ item_vaild_slot = Dictionary[int, bool]({
 })
 effects = Array[ExtResource("1_mye0d")]([SubResource("Resource_uk7wl")])
 item_name = "大法师的手骨"
+item_icon = ExtResource("3_8c83c")
 decrption_override = "召唤间隔减少0.5s"
 item_cost = 5
 metadata/_custom_type_script = "uid://c4xh8anp7uons"

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://da6wnbouwsqba"]
 
-[ext_resource type="Script" uid="uid://bdwdyfhxu16xp" path="res://assets/scenes/ui/shop_panel/shop_panel.gd" id="1_vr486"]
+[ext_resource type="Script" uid="uid://bdwdyfhxu16xp" path="res://scenes/ui/shop_panel/shop_panel.gd" id="1_vr486"]
 [ext_resource type="Script" uid="uid://dowanpccbkp8p" path="res://resources/items/item_base.gd" id="2_pk1f0"]
 [ext_resource type="PackedScene" uid="uid://cgvk8vpgo8368" path="res://scenes/ui/shop_card/shop_card.tscn" id="2_uw7t7"]
 [ext_resource type="Resource" uid="uid://b1cpgsnisp755" path="res://resources/items/weapons/melee/axe/item_axe_1.tres" id="3_kche8"]
-[ext_resource type="PackedScene" uid="uid://b7227lh736bjg" path="res://assets/scenes/ui/stats_container/stats_container.tscn" id="3_whl1y"]
-[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://assets/Styles/common_style.tres" id="4_o7w7v"]
+[ext_resource type="PackedScene" uid="uid://b7227lh736bjg" path="res://scenes/ui/stats_container/stats_container.tscn" id="3_whl1y"]
+[ext_resource type="StyleBox" uid="uid://cfb0fo1j8v6of" path="res://Styles/common_style.tres" id="4_o7w7v"]
 [ext_resource type="Resource" uid="uid://dj35ttd1h22pk" path="res://resources/items/weapons/melee/axe/item_axe_2.tres" id="4_rqkor"]
 [ext_resource type="Resource" uid="uid://c85shojk0wvxn" path="res://resources/items/weapons/melee/axe/item_axe_3.tres" id="5_xnsbf"]
 [ext_resource type="Resource" uid="uid://x0okk6a5i7bx" path="res://resources/items/weapons/melee/axe/item_axe_4.tres" id="6_xbu4e"]
@@ -54,7 +54,7 @@
 [ext_resource type="Resource" uid="uid://c6tcoijmjcvvm" path="res://resources/items/passives/data/passive_power_ball.tres" id="49_k3s3w"]
 [ext_resource type="PackedScene" uid="uid://b71iqvdxs6dem" path="res://scenes/ui/item_card/item_card.tscn" id="49_rqkor"]
 [ext_resource type="Resource" uid="uid://cbiavq8a28jio" path="res://resources/items/passives/data/passive_rage.tres" id="50_2vdj1"]
-[ext_resource type="PackedScene" uid="uid://ra1o3w8cgebs" path="res://assets/scenes/ui/coins_bag/coins_bag.tscn" id="50_kche8"]
+[ext_resource type="PackedScene" uid="uid://ra1o3w8cgebs" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="50_kche8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whl1y"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 1)

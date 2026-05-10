@@ -50,7 +50,7 @@ var available_players: Dictionary[String, PackedScene] = {
 	"Bunny": preload("res://scenes/unit/players/player_bunny.tscn"),
 	"Crazy": preload("res://scenes/unit/players/player_crazy.tscn"),
 	"Knight": preload("res://scenes/unit/players/player_knight.tscn"),
-	"Well Rounded": preload("res://scenes/unit/players/player_well_rounded.tscn"),
+	"骨头人": preload("res://scenes/unit/players/player_well_rounded.tscn"),
 	
 }
 var equiped_bones: Dictionary[BoneSlot,ItemBase]={
@@ -80,7 +80,7 @@ enum BoneSlot{head,lhand,lrib,spine,rrib,rhand,lleg,rleg}
 enum ItemCallBack{ONEQUIP,ONUNLOAD,EQUIPORUNLOAD,ONATTACK,ONSUMMONTIMEOUT,ONPLAYERDIE,ONPUNITDIE,APPLYSUMMON,SUMMONSPAWN,ONHIT,ONENEMYHIT}
 enum BuffType{INVISIBLE}
 
-var coins: int = 500
+var coins: int = 5
 var player: Player
 var game_paused := false
 

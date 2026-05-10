@@ -20,6 +20,7 @@ func add(node:Node2D,global_position:Vector2):
 	add_node.emit(node,global_position)
 
 func show_tooltip(item_card:ItemCard):
+	print(111)
 	show_item_tooltip.emit(item_card)
 func hide_tooltip(item_card:ItemCard):
 	hide_item_tooltip.emit(item_card)

@@ -14,6 +14,17 @@ var knockback_dir: Vector2
 var knockback_power: float
 var current_target:Node2D
 
+var enemy_texture_list := [preload("uid://b52wr42f275ql"),preload("uid://bfggv8xjo3lq3"), preload("uid://bx1x8kad2275y")]
+@onready var sprite_2d: Sprite2D = $Visuals/Sprite/Sprite2D
+
+func _ready() -> void:
+	call_deferred("_random_texture")
+
+
+func _random_texture() -> void:
+	sprite_2d.texture = enemy_texture_list.pick_random()
+
+
 func _process(delta: float) -> void:
 	if Global.game_paused: return
 	
